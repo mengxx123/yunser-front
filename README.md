@@ -21,4 +21,4 @@ npm run build --report
 http://localhost:8080
 http://120.78.177.9:9902
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+dev
