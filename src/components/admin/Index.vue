@@ -34,6 +34,7 @@
                         </mu-list-item>
                     </mu-list-item>
                 </mu-list-item>
+                <mu-list-item title="用户管理" to="/admin/users"/>
                 <mu-list-item title="文件管理" to="/files"/>
                 <mu-list-item title="系统" to="/admin/system"/>
             </mu-list>

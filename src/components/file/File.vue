@@ -1,7 +1,7 @@
 <template>
     <div class="page page-file" @resize="resize">
         <header class="page-header">
-            <mu-appbar title="文件管理器">
+            <mu-appbar title="文件管理">
                 <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
             </mu-appbar>
         </header>

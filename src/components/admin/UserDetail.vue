@@ -1,12 +1,17 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="关于我们">
+            <mu-appbar title="用户详情">
                 <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
             </mu-appbar>
         </header>
         <main class="page-body">
             用户管理
+            <div class="" v-if="user">
+                <div>昵称：{{ user.nickname }}</div>
+                <div>邮箱：{{ user.email }}</div>
+                <div>手机号：{{ user.phone }}</div>
+            </div>
         </main>
     </div>
 </template>
@@ -15,20 +20,26 @@
     export default {
         data () {
             return {
+                user: null
             }
         },
         mounted() {
-            console.log(new Date().getTime())
+            this.init()
         },
         methods: {
-            time(item) {
-                let startTime = new Date(item.startTime)
-                let endTime = new Date(item.endTime)
-                let minute = (endTime.getTime() - startTime.getTime()) / 1000 / 60
-                return minute
-            },
-            handleChange(val) {
-                this.bottomNav = val
+            init() {
+                let userId = this.$route.params.id
+                this.$http.get('/users/' + userId)
+                    .then(response => {
+                            let data = response.data
+                            console.log(data)
+                            if (data.code === 0) {
+                                this.user = data.data
+                            }
+                        },
+                        response => {
+                            console.log(response)
+                        })
             }
         }
     }
