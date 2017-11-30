@@ -31,15 +31,15 @@
                 let userId = this.$route.params.id
                 this.$http.get('/users/' + userId)
                     .then(response => {
-                            let data = response.data
-                            console.log(data)
-                            if (data.code === 0) {
-                                this.user = data.data
-                            }
-                        },
-                        response => {
-                            console.log(response)
-                        })
+                        let data = response.data
+                        console.log(data)
+                        if (data.code === 0) {
+                            this.user = data.data
+                        }
+                    },
+                    response => {
+                        console.log(response)
+                    })
             }
         }
     }

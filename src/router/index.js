@@ -8,6 +8,10 @@ const About = resolve => require(['@/components/About'], resolve)
 const Login = resolve => require(['@/components/Login'], resolve)
 const Register = resolve => require(['@/components/Register'], resolve)
 
+const UserDetail = resolve => require(['@/components/UserDetail'], resolve)
+
+const ArticleDetail = resolve => require(['@/components/article/Detail'], resolve)
+const Article = resolve => require(['@/components/article/Article'], resolve)
 
 const Count = resolve => require(['@/components/Count'], resolve)
 const History = resolve => require(['@/components/History'], resolve)
@@ -67,6 +71,19 @@ let routes = [
     }, {
         path: '/files/detail',
         component: FileDetail
+    },
+    {
+        path: '/users/:id',
+        component: UserDetail
+    },
+    // 文章相关
+    {
+        path: '/articles',
+        component: Article
+    },
+    {
+        path: '/articles/:id',
+        component: ArticleDetail
     },
     // 账号相关
     {

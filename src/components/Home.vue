@@ -10,6 +10,10 @@
         </header>
         <main class="page-body">
             <router-link to="/login">登录</router-link>
+            <router-link to="/forum">论坛</router-link>
+            <router-link to="/users/1">用户详情</router-link>
+            <router-link to="/articles">文章</router-link>
+            <router-link to="/articles/1">文章详情</router-link>
         </main>
         <ui-footer></ui-footer>
         <mu-drawer :open="open" :docked="docked" @close="toggle()">

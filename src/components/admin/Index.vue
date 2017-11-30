@@ -15,7 +15,10 @@
         </main>
         <mu-drawer :open="true" :docked="true">
             <mu-list>
-                <mu-list-item title="11"/>
+                <mu-list-item title="用户管理" to="/admin/users"/>
+                <mu-list-item title="文件管理" to="/files"/>
+                <mu-list-item title="系统" to="/admin/system"/>
+                <mu-list-item title="文章管理"/>
                 <mu-list-item title="用户管理" toggleNested>
                     <mu-icon slot="left" value="inbox"/>
                     <mu-list-item slot="nested" title="Starred">
@@ -34,9 +37,7 @@
                         </mu-list-item>
                     </mu-list-item>
                 </mu-list-item>
-                <mu-list-item title="用户管理" to="/admin/users"/>
-                <mu-list-item title="文件管理" to="/files"/>
-                <mu-list-item title="系统" to="/admin/system"/>
+
             </mu-list>
         </mu-drawer>
     </div>
