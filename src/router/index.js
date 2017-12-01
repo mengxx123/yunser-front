@@ -26,11 +26,17 @@ const FileEdit = resolve => require(['@/components/file/FileEdit'], resolve)
 
 const Admin = resolve => require(['@/components/admin/Index'], resolve)
 const AdminLogin = resolve => require(['@/components/admin/Login'], resolve)
+
 const AdminUser = resolve => require(['@/components/admin/User'], resolve)
 const AdminUserAdd = resolve => require(['@/components/admin/UserAdd'], resolve)
 const AdminUserDetail = resolve => require(['@/components/admin/UserDetail'], resolve)
+
 const AdminManager = resolve => require(['@/components/admin/Manager'], resolve)
 const AdminManagerDetail = resolve => require(['@/components/admin/ManagerDetail'], resolve)
+
+const Menu = resolve => require(['@/components/admin/Menu'], resolve)
+
+const AdminApp = resolve => require(['@/components/admin/App'], resolve)
 
 const System = resolve => require(['@/components/system/Index'], resolve)
 
@@ -70,6 +76,11 @@ let routes = [
         path: '/mine',
         component: Mine
     },
+    // 菜单相关
+    {
+        path: '/admin/menus',
+        component: Menu
+    },
     // 文件相关
     {
         path: '/files',
@@ -105,6 +116,11 @@ let routes = [
     },
     // 管理平台
     {
+        path: '/admin',
+        component: Admin
+    },
+    // 用户管理
+    {
         path: '/admin/users',
         component: AdminUser
     },
@@ -116,9 +132,10 @@ let routes = [
         path: '/admin/users/:id',
         component: AdminUserDetail
     },
+    // 应用管理
     {
-        path: '/admin',
-        component: Admin
+        path: '/admin/apps',
+        component: AdminApp
     },
     // 系统
     {
@@ -138,5 +155,11 @@ let routes = [
 
 export default new Router({
     mode: 'history',
-    routes: routes
+    routes: routes,
+    scrollBehavior (to, from, savedPosition) {
+        return {
+            x: 0,
+            y: 0
+        }
+    }
 })

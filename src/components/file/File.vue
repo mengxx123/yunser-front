@@ -6,9 +6,11 @@
             </mu-appbar>
         </header>
         <main class="page-body">
+            <div>当前目录：{{ curPath }}</div>
             <button @click="back">返回上一级</button>
             <button @click="refresh">刷新</button>
-            <mu-list>
+            <div v-if="!files.length">空文件夹</div>
+            <mu-list v-if="files.length">
                 <mu-sub-header>最近聊天记录</mu-sub-header>
                 <mu-list-item :title="file.name" describeText="Jan 9, 2014" v-for="file in files">
                     <mu-avatar icon="folder" slot="leftAvatar" v-if="file.type === 'directory'" @click="viewFile(file)"/>
@@ -43,7 +45,8 @@
 </template>
 
 <script>
-    const os = require("os")
+    const os = require('os')
+    const path = require('path')
 
     export default {
         data () {
@@ -51,7 +54,6 @@
                 nameDialogVisible: false,
                 largeScreen: false,
                 dialog: false,
-                parentPath: 'D:\\\\', // TODO 写死
                 curPath: '',
                 file: {}, // 当前文件
                 // 文件列表
@@ -122,10 +124,9 @@
                 this.largeScreen = window.innerWidth > 500
             },
             back() {
-                this.showPath(this.parentPath) // TODO null bug
-            },
-            getParentPath() {
-
+                let parentPath = path.resolve(this.curPath.replace(/\\/, '/'), '..')
+                console.log(path.resolve('D:/test/隐藏目录', '..'))
+                this.showPath(parentPath)
             },
             removeFile() {
                 this.dialog = false
@@ -145,7 +146,6 @@
                 this.removePath = file.path
             },
             showPath(path) {
-                this.parentPath = this.curPath
                 this.curPath = path
                 this.$http.get('/files?path=' + encodeURI(path))
                     .then(response => {

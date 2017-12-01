@@ -15,7 +15,9 @@
         </main>
         <mu-drawer :open="true" :docked="true">
             <mu-list>
+                <mu-list-item title="菜单管理" to="/admin/menus"/>
                 <mu-list-item title="用户管理" to="/admin/users"/>
+                <mu-list-item title="应用管理" to="/admin/apps"/>
                 <mu-list-item title="文件管理" to="/files"/>
                 <mu-list-item title="系统" to="/admin/system"/>
                 <mu-list-item title="文章管理"/>
@@ -37,7 +39,6 @@
                         </mu-list-item>
                     </mu-list-item>
                 </mu-list-item>
-
             </mu-list>
         </mu-drawer>
     </div>
