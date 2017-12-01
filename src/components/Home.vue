@@ -14,6 +14,7 @@
             <router-link to="/users/1">用户详情</router-link>
             <router-link to="/articles">文章</router-link>
             <router-link to="/articles/1">文章详情</router-link>
+            <router-link to="/mine">个人中心</router-link>
         </main>
         <ui-footer></ui-footer>
         <mu-drawer :open="open" :docked="docked" @close="toggle()">

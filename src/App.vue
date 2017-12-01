@@ -11,5 +11,12 @@
 </script>
 
 <style>
-
+    .ui-float-btn {
+        position: fixed;
+        right: 32px;
+        bottom: 16px;
+    }
+    .ui-dialog {
+        width: 400px;
+    }
 </style>

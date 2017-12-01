@@ -13,6 +13,8 @@ const UserDetail = resolve => require(['@/components/UserDetail'], resolve)
 const ArticleDetail = resolve => require(['@/components/article/Detail'], resolve)
 const Article = resolve => require(['@/components/article/Article'], resolve)
 
+const Mine = resolve => require(['@/components/Mine'], resolve)
+
 const Count = resolve => require(['@/components/Count'], resolve)
 const History = resolve => require(['@/components/History'], resolve)
 const More = resolve => require(['@/components/More'], resolve)
@@ -59,10 +61,17 @@ let routes = [
     }, {
         path: '/more',
         component: More
-    }, {
+    },
+    {
         path: '/add',
         component: Add
-    }, {
+    },
+    {
+        path: '/mine',
+        component: Mine
+    },
+    // 文件相关
+    {
         path: '/files',
         component: File
     }, {

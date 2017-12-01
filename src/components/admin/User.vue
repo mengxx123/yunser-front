@@ -34,7 +34,7 @@
             </mu-table>
             <mu-pagination :total="total" :current="current" @pageChange="handleClick"></mu-pagination>
         </main>
-        <mu-float-button class="float-right" icon="add" to="/admin/users/add"/>
+        <mu-float-button class="ui-float-btn" icon="add" to="/admin/users/add"/>
     </div>
 </template>
 
@@ -103,10 +103,5 @@
         .table {
 
         }
-    }
-    .float-right {
-        position: fixed;
-        right: 32px;
-        bottom: 16px;
     }
 </style>

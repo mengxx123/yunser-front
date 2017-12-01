@@ -34,6 +34,11 @@
                 <mu-list-item title="Menu Item 3"/>
             </mu-list>
         </mu-drawer>
+        <mu-float-button class="ui-float-btn" icon="add" @click="add"/>
+        <mu-dialog class="ui-dialog" :open="nameDialogVisible" title="Scrollable Dialog" scrollable>
+            2121212
+            <mu-flat-button primary label="关闭" @click="add" slot="actions"/>
+        </mu-dialog>
     </div>
 </template>
 
@@ -43,6 +48,7 @@
     export default {
         data () {
             return {
+                nameDialogVisible: false,
                 largeScreen: false,
                 dialog: false,
                 parentPath: 'D:\\\\', // TODO 写死
@@ -72,13 +78,37 @@
 //            window.removeEventListener('resize', this.listener)
         },
         methods: {
+            add() {
+                this.$http.post('/files?path=' + this.curPath + '' + '123.txt') // TODO
+                    .then(response => {
+                            let data = response.data
+                            console.log(data)
+                            this.refresh()
+                        },
+                        response => {
+                            console.log(response)
+                        })
+            },
             init() {
-                let query = this.$qs.parse(location.href.split('?')[1]) // 有 bug
-                let path = query.path
-                if (!path) {
-                    path = 'D:\\\\' // TODO 写死
-                }
-                this.showPath(path)
+                this.$http.get('/root')
+                    .then(response => {
+                        let data = response.data
+                        console.log(data)
+
+                        this.files = data.data
+
+                        console.log('呵呵')
+//                        this.files = data.data
+                    },
+                    response => {
+                        console.log(response)
+                    })
+//                let query = this.$qs.parse(location.href.split('?')[1]) // 有 bug
+//                let path = query.path
+//                if (!path) {
+//                    path = 'D://' // TODO 写死
+//                }
+//                this.showPath(path)
                 //
 //                largeScreen = window.innerWidth > 500
 //                this.listener = () => {
