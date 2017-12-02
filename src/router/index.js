@@ -1,46 +1,63 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Home = resolve => require(['@/components/Home'], resolve)
-const Main = resolve => require(['@/components/Main'], resolve)
-const About = resolve => require(['@/components/About'], resolve)
+const Home = resolve => require(['VIEW/Home'], resolve)
+const Main = resolve => require(['VIEW/Main'], resolve)
+const About = resolve => require(['VIEW/About'], resolve)
+const Feedback = resolve => require(['VIEW/Feedback'], resolve)
 
-const Login = resolve => require(['@/components/Login'], resolve)
-const Register = resolve => require(['@/components/Register'], resolve)
+const Login = resolve => require(['VIEW/Login'], resolve)
+const Register = resolve => require(['VIEW/Register'], resolve)
 
-const UserDetail = resolve => require(['@/components/UserDetail'], resolve)
+const UserDetail = resolve => require(['VIEW/UserDetail'], resolve)
 
-const ArticleDetail = resolve => require(['@/components/article/Detail'], resolve)
-const Article = resolve => require(['@/components/article/Article'], resolve)
+const ArticleDetail = resolve => require(['VIEW/article/Detail'], resolve)
+const Article = resolve => require(['VIEW/article/Article'], resolve)
+const MyArticle = resolve => require(['VIEW/article/MyArticle'], resolve)
+const ArticleAdd = resolve => require(['VIEW/article/ArticleAdd'], resolve)
 
-const Mine = resolve => require(['@/components/Mine'], resolve)
+const Mine = resolve => require(['VIEW/Mine'], resolve)
 
-const Count = resolve => require(['@/components/Count'], resolve)
-const History = resolve => require(['@/components/History'], resolve)
-const More = resolve => require(['@/components/More'], resolve)
-const Add = resolve => require(['@/components/Add'], resolve)
+const Count = resolve => require(['VIEW/Count'], resolve)
+const History = resolve => require(['VIEW/History'], resolve)
+const More = resolve => require(['VIEW/More'], resolve)
+const Add = resolve => require(['VIEW/Add'], resolve)
+// 常用页面
+const Settings = resolve => require(['VIEW/Settings'], resolve)
+const Help = resolve => require(['VIEW/Help'], resolve)
 
-const File = resolve => require(['@/components/file/File'], resolve)
-const FileDetail = resolve => require(['@/components/file/FileDetail'], resolve)
-const FileEdit = resolve => require(['@/components/file/FileEdit'], resolve)
+const File = resolve => require(['VIEW/file/File'], resolve)
+const FileDetail = resolve => require(['VIEW/file/FileDetail'], resolve)
+const FileEdit = resolve => require(['VIEW/file/FileEdit'], resolve)
 
-const Admin = resolve => require(['@/components/admin/Index'], resolve)
-const AdminLogin = resolve => require(['@/components/admin/Login'], resolve)
+const Admin = resolve => require(['VIEW/admin/Index'], resolve)
+const AdminLogin = resolve => require(['VIEW/admin/Login'], resolve)
 
-const AdminUser = resolve => require(['@/components/admin/User'], resolve)
-const AdminUserAdd = resolve => require(['@/components/admin/UserAdd'], resolve)
-const AdminUserDetail = resolve => require(['@/components/admin/UserDetail'], resolve)
+const AdminUser = resolve => require(['VIEW/admin/User'], resolve)
+const AdminUserAdd = resolve => require(['VIEW/admin/UserAdd'], resolve)
+const AdminUserDetail = resolve => require(['VIEW/admin/UserDetail'], resolve)
 
-const AdminManager = resolve => require(['@/components/admin/Manager'], resolve)
-const AdminManagerDetail = resolve => require(['@/components/admin/ManagerDetail'], resolve)
+const AdminManager = resolve => require(['VIEW/admin/Manager'], resolve)
+const AdminManagerDetail = resolve => require(['VIEW/admin/ManagerDetail'], resolve)
 
-const Menu = resolve => require(['@/components/admin/Menu'], resolve)
+const Menu = resolve => require(['VIEW/admin/Menu'], resolve)
 
-const AdminApp = resolve => require(['@/components/admin/App'], resolve)
+const AdminApp = resolve => require(['VIEW/admin/App'], resolve)
 
-const System = resolve => require(['@/components/system/Index'], resolve)
+const System = resolve => require(['VIEW/system/Index'], resolve)
 
-const Project = resolve => require(['@/components/project/Index'], resolve)
+const Project = resolve => require(['VIEW/project/Index'], resolve)
+
+const Message = resolve => require(['VIEW/im/Message'], resolve)
+const Contacts = resolve => require(['VIEW/im/Contacts'], resolve)
+// 时间
+const TimeHome = resolve => require(['VIEW/time/Home'], resolve)
+const TimeMain = resolve => require(['VIEW/time/Main'], resolve)
+const TimeAbout = resolve => require(['VIEW/time/About'], resolve)
+const TimeCount = resolve => require(['VIEW/time/Count'], resolve)
+const TimeHistory = resolve => require(['VIEW/time/History'], resolve)
+const TimeMore = resolve => require(['VIEW/time/More'], resolve)
+const TimeAdd = resolve => require(['VIEW/time/Add'], resolve)
 
 Vue.use(Router)
 
@@ -58,10 +75,16 @@ let routes = [
     }, {
         path: '/count',
         component: Count
-    }, {
+    },
+    {
         path: '/about',
         component: About
-    }, {
+    },
+    {
+        path: '/feedback',
+        component: Feedback
+    },
+    {
         path: '/history',
         component: History
     }, {
@@ -75,6 +98,15 @@ let routes = [
     {
         path: '/mine',
         component: Mine
+    },
+    // 其他
+    {
+        path: '/help',
+        component: Help
+    },
+    {
+        path: '/settings',
+        component: Settings
     },
     // 菜单相关
     {
@@ -104,6 +136,10 @@ let routes = [
     {
         path: '/articles/:id',
         component: ArticleDetail
+    },
+    {
+        path: '/me/articles',
+        component: MyArticle
     },
     // 账号相关
     {
@@ -150,6 +186,41 @@ let routes = [
     {
         path: '/admin/login',
         component: AdminLogin
+    },
+    // 消息
+    {
+        path: '/me/contacts',
+        component: Contacts
+    },
+    {
+        path: '/me/messages',
+        component: Message
+    },
+    // 时间
+    {
+        path: '/time',
+        component: TimeHome,
+        children: [
+            {
+                path: '',
+                component: TimeMain
+            }
+        ]
+    }, {
+        path: '/time/count',
+        component: TimeCount
+    }, {
+        path: '/time/about',
+        component: TimeAbout
+    }, {
+        path: '/time/history',
+        component: TimeHistory
+    }, {
+        path: '/time/more',
+        component: TimeMore
+    }, {
+        path: '/time/add',
+        component: TimeAdd
     }
 ]
 

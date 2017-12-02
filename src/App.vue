@@ -6,7 +6,18 @@
 
 <script>
     export default {
-        name: 'app'
+        data() {
+            return {}
+        },
+        mounted() {
+            console.log('初始化')
+            console.log(window)
+            window.addEventListener('resize', () => {
+                console.log(window.innerWidth)
+            })
+        },
+        methods: {
+        }
     }
 </script>
 
@@ -34,4 +45,5 @@
     .ui-dialog {
         width: 400px;
     }
+
 </style>
