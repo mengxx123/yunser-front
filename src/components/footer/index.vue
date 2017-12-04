@@ -3,7 +3,7 @@
         <mu-bottom-nav :value="bottomNav" @change="handleChange">
             <mu-bottom-nav-item value="home" title="活动" icon="home" @click.native="page('/')"/>
             <mu-bottom-nav-item value="history" title="历史" icon="history" @click.native="page('/history')"/>
-            <mu-bottom-nav-item value="count" title="统计" icon="event" @click.native="page('/count')"/>
+            <mu-bottom-nav-item value="mine" title="个人中心" icon="event" @click.native="page('/mine')"/>
             <mu-bottom-nav-item value="more" title="更多" icon="send" @click.native="page('/more')"/>
         </mu-bottom-nav>
     </footer>

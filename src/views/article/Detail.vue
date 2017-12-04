@@ -17,6 +17,7 @@
                 <mu-list-item title="小明" v-for="comment in comments">
                     <mu-avatar src="/images/avatar1.jpg" slot="leftAvatar"/>
                     <span slot="describe" v-html="comment.content"></span>
+                    <div>{{ comment.updateTime }}</div>
                     <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
                         <mu-menu-item title="回复" />
                         <mu-menu-item title="标记" />
