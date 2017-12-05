@@ -9,6 +9,7 @@
             </mu-appbar>
         </header>
         <main class="page-body">
+            <router-link to="/shops/1">店铺1</router-link>
             <router-link to="/me/messages">消息</router-link>
             <router-link to="/me/contacts">联系人</router-link>
             <router-link to="/login">登录</router-link>

@@ -45,5 +45,19 @@
     .ui-dialog {
         width: 400px;
     }
-
+    .login-btn {
+        width: 100%;
+    }
+    .ui-page-wrap {
+        margin: 100px auto;
+        width: 100%;
+        max-width: 500px;
+        padding: 16px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, .117647), 0 1px 4px rgba(0, 0, 0, .117647);
+    }
+    @media screen and (max-width: 600px) {
+        .ui-page-wrap {
+            box-shadow: none;
+        }
+    }
 </style>

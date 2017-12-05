@@ -58,6 +58,9 @@ const TimeCount = resolve => require(['VIEW/time/Count'], resolve)
 const TimeHistory = resolve => require(['VIEW/time/History'], resolve)
 const TimeMore = resolve => require(['VIEW/time/More'], resolve)
 const TimeAdd = resolve => require(['VIEW/time/Add'], resolve)
+// 商城相关
+const ShopDetail = resolve => require(['VIEW/shop/ShopDetail'], resolve)
+const GoodsDetail = resolve => require(['VIEW/shop/GoodsDetail'], resolve)
 
 Vue.use(Router)
 
@@ -173,6 +176,15 @@ let routes = [
         path: '/admin/apps',
         component: AdminApp
     },
+    // 商城相关
+    {
+        path: '/shops/:id',
+        component: ShopDetail
+    },
+  {
+    path: '/goodses/:id',
+    component: GoodsDetail
+  },
     // 系统
     {
         path: '/admin/system',
