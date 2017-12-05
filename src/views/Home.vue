@@ -27,7 +27,9 @@
             <router-link to="/me/articles">我的文章</router-link>
             <router-link to="/apps/1">todo</router-link>
             <router-link to="/time">时间</router-link>
-
+            <div>商城</div>
+            <router-link to="/shops/1">店铺1</router-link>
+            <router-link to="/me/addresses">收货地址</router-link>
         </main>
         <ui-footer></ui-footer>
         <mu-drawer :open="open" :docked="docked" @close="toggle()">
