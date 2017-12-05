@@ -4,10 +4,31 @@
             <mu-list>
                 <mu-list-item title="菜单管理" to="/admin/menus"/>
                 <mu-list-item title="用户管理" to="/admin/users"/>
+                <mu-list-item title="邮件管理" to="/admin/email"/>
+                <mu-list-item title="商家管理" to="/admin/email"/>
+                <mu-list-item title="店铺管理" to="/admin/email"/>
                 <mu-list-item title="应用管理" to="/admin/apps"/>
                 <mu-list-item title="文件管理" to="/files"/>
                 <mu-list-item title="系统" to="/admin/system"/>
                 <mu-list-item title="文章管理"/>
+                <mu-list-item title="店铺管理" toggleNested>
+                    <mu-icon slot="left" value="inbox"/>
+                    <mu-list-item slot="nested" title="Starred">
+                        <mu-icon slot="left" value="grade"/>
+                    </mu-list-item>
+                    <mu-list-item slot="nested" disabled title="Sent mail" toggleNested>
+                        <mu-icon slot="left" value="send"/>
+                        <mu-list-item title="Drafts" slot="nested">
+                            <mu-icon slot="left" value="drafts"/>
+                        </mu-list-item>
+                    </mu-list-item>
+                    <mu-list-item slot="nested" title="Inbox" toggleNested>
+                        <mu-icon slot="left" value="inbox"/>
+                        <mu-list-item title="Drafts" slot="nested">
+                            <mu-icon slot="left" value="drafts"/>
+                        </mu-list-item>
+                    </mu-list-item>
+                </mu-list-item>
                 <mu-list-item title="用户管理" toggleNested>
                     <mu-icon slot="left" value="inbox"/>
                     <mu-list-item slot="nested" title="Starred">
