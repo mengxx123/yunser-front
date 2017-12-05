@@ -67,6 +67,8 @@ const AddressEdit = resolve => require(['VIEW/shop/AddressEdit'], resolve)
 
 const County = resolve => require(['VIEW/County'], resolve)
 
+const Exam = resolve => require(['VIEW/Exam'], resolve)
+
 Vue.use(Router)
 
 let routes = [
@@ -203,6 +205,11 @@ let routes = [
     {
         path: '/me/messages',
         component: Message
+    },
+    // 测试
+    {
+        path: '/exam',
+        component: Exam
     },
     // 商城
     {

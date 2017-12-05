@@ -30,6 +30,8 @@
             <div>商城</div>
             <router-link to="/shops/1">店铺1</router-link>
             <router-link to="/me/addresses">收货地址</router-link>
+            <div>测试</div>
+            <router-link to="/exam">测试</router-link>
         </main>
         <ui-footer></ui-footer>
         <mu-drawer :open="open" :docked="docked" @close="toggle()">
