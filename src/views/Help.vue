@@ -6,6 +6,27 @@
             </mu-appbar>
         </header>
         <main class="page-body">
+            <article>
+                <h1>账号</h1>
+                <h2>FAQ</h2>
+                <p></p>
+            </article>
+
+            <div>我会前端/安卓，如何快速开发出一个 app？</div>
+
+            <div>开发流程</div>
+            <article>
+                <h2>第一步：</h2>
+                <p><a href="http://yunser.com/register" target="_blank">注册</a>云设账号</p>
+                <p>登录开发者平台</p>
+                <p>填写信息资料</p>
+                <p>成为开发者</p>
+                <p>创建应用（基本资料、图片上传、版权资料）</p>
+                <p>应用上线</p>
+                <p>开发者服务（数据监测，推广合作）</p>
+                <hr>
+                <div>开发者交流群：xxx</div>
+            </article>
             <mu-list>
                 <mu-list-item title="新手上路" to="/about"></mu-list-item>
                 <mu-list-item title="常见问题" to="/about"></mu-list-item>

@@ -32,7 +32,6 @@
             }
         },
         mounted() {
-            console.log(new Date().getTime())
         },
         methods: {
             login() {
@@ -41,17 +40,32 @@
                     password: this.password
                 }))
                     .then(response => {
-                            let data = response.data
-                            console.log(data)
-                            if (data.code === 0) {
-                                this.$storage.set('user', data.data.user)
-                                this.$storage.set('accessToken', data.data.accessToken)
-                                this.$router.push('/')
-                            }
-                        },
-                        response => {
-                            console.log(response)
-                        })
+                        let data = response.data
+                        console.log(data)
+                        if (data.code === 0) {
+                            this.$storage.set('user', data.data.user)
+                            this.$storage.set('accessToken', data.data.accessToken)
+
+                            this.redirect()
+                        }
+                    },
+                    response => {
+                        console.log(response)
+                    })
+            },
+            // 跳转
+            redirect() {
+                let params = this.$qs.parse(location.search.replace('?', ''))
+                if (params.redirect) {
+                    let redirectUrl = decodeURIComponent(params.redirect)
+                    if (redirectUrl.match(/^http/)) {
+                        location.href = redirectUrl
+                    } else {
+                        this.$router.push(redirectUrl)
+                    }
+                } else {
+                    this.$router.push('/')
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import storage from '../util/storage'
 
 const Home = resolve => require(['VIEW/Home'], resolve)
 const Main = resolve => require(['VIEW/Main'], resolve)
@@ -67,6 +68,16 @@ const AddressEdit = resolve => require(['VIEW/shop/AddressEdit'], resolve)
 
 const County = resolve => require(['VIEW/County'], resolve)
 
+// 开发者平台
+const Debug = resolve => require(['VIEW/Debug'], resolve)
+const Develop = resolve => require(['VIEW/develop/Home'], resolve)
+const DeveloperAdd = resolve => require(['VIEW/develop/Add'], resolve)
+const AdminDeveloper = resolve => require(['VIEW/develop/Admin'], resolve)
+// 邮件
+const AdminEmail = resolve => require(['VIEW/admin/Email'], resolve)
+
+const Error404 = resolve => require(['VIEW/Error404'], resolve)
+
 Vue.use(Router)
 
 let routes = [
@@ -80,9 +91,14 @@ let routes = [
                 component: Main
             }
         ]
-    }, {
+    },
+    {
         path: '/count',
         component: Count
+    },
+    {
+        path: '/404',
+        component: Error404
     },
     {
         path: '/about',
@@ -105,7 +121,10 @@ let routes = [
     },
     {
         path: '/mine',
-        component: Mine
+        component: Mine,
+        meta: {
+            auth: true
+        },
     },
     // 其他
     {
@@ -152,11 +171,17 @@ let routes = [
     // 账号相关
     {
         path: '/login',
-        component: Login
+        component: Login,
+        meta: {
+            title: '登录'
+        }
     },
     {
         path: '/register',
-        component: Register
+        component: Register,
+        meta: {
+            title: '注册'
+        }
     },
     // 管理平台
     {
@@ -251,13 +276,40 @@ let routes = [
     }, {
         path: '/time/more',
         component: TimeMore
-    }, {
+    },
+    {
         path: '/time/add',
         component: TimeAdd
+    },
+    // debug
+    {
+        path: '/debug',
+        component: Debug
+    },
+    {
+        path: '/develop',
+        component: Develop
+    },
+    {
+        path: '/developers/add',
+        component: DeveloperAdd
+    },
+    {
+        path: '/admin/develop',
+        component: AdminDeveloper
+    },
+    // 邮件
+    {
+        path: '/admin/email',
+        component: AdminEmail
+    },
+    {
+        path: '*',
+        redirect: '/404'
     }
 ]
 
-export default new Router({
+let router = new Router({
     mode: 'history',
     routes: routes,
     scrollBehavior (to, from, savedPosition) {
@@ -267,3 +319,47 @@ export default new Router({
         }
     }
 })
+
+const APP_NAME = '云设'
+
+function getTitle(title) {
+    if (title) {
+        return title + ' - ' + APP_NAME
+    } else {
+        return APP_NAME
+    }
+}
+
+router.beforeEach((to, from, next) => {
+    // TODO /admin 跳转到 /cn/admin
+    if (to.path === '/admin/home') {
+        router.push('/cn/admin')
+        return
+    }
+
+    if (/login/.test(to.path)) {
+        if (storage.get('accessToken')) {
+            router.push('/') // TODO
+        } else {
+            next()
+        }
+    } else if (to.matched.some(record => record.meta.auth)) {
+        window.redirect = encodeURIComponent(to.path)
+        let redirect = encodeURIComponent(to.path)
+
+        if (storage.get('accessToken')) {
+            next()
+        } else {
+            router.push({path: '/login', query: {redirect: redirect}})
+        }
+    } else {
+        if (to.meta.title) {
+            document.title = getTitle(to.meta.title)
+        } else {
+            document.title = getTitle()
+        }
+        next()
+    }
+})
+
+export default router

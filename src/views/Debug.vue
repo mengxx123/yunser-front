@@ -1,7 +1,7 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="云设">
+            <mu-appbar title="调试">
                 <mu-icon-button icon="menu" slot="left" @click="toggle(true)"/>
                 <mu-icon-menu icon="more_vert" slot="right">
                     <mu-menu-item title="分享"/>
@@ -12,22 +12,37 @@
             <div v-if="isLogin">
                 <p>欢迎您</p>
                 {{ user.name }}
-                <div @click="loginOut">退出登录</div>
                 <div v-if="user.id === '1'">
                     <router-link to="/debug">调试</router-link>
-                </div>
-                <div>
-                    <router-link to="/account"
                 </div>
             </div>
             <div v-else>
                 <router-link to="/login">登录</router-link>
                 <mu-raised-button label="注册" primary to="/register"/>
             </div>
-
-            <router-link to="/login">登录</router-link>
+            <router-link to="/admin">管理平台</router-link>
+            <router-link to="/forum">论坛</router-link>
+            <router-link to="/users/1">用户详情</router-link>
+            <router-link to="/articles">文章</router-link>
             <router-link to="/articles/1">文章详情</router-link>
             <router-link to="/mine">个人中心</router-link>
+            <div>个人中心</div>
+            <router-link to="/me/messages">消息</router-link>
+            <router-link to="/me/contacts">联系人</router-link>
+            <router-link to="/me/articles">我的文章</router-link>
+            <div>推荐用户</div>
+            <router-link to="/users/1">建帆远航</router-link>
+            <router-link to="/users/2">二哥</router-link>
+            <router-link to="/users/3">小三</router-link>
+            <div>工具</div>
+            <router-link to="/me/articles">我的文章</router-link>
+            <router-link to="/apps/1">todo</router-link>
+            <router-link to="/time">时间</router-link>
+            <div>商城</div>
+            <router-link to="/shops/1">店铺1</router-link>
+            <router-link to="/me/addresses">收货地址</router-link>
+            <div>开发者</div>
+            <router-link to="/develop">开发者平台</router-link>
 
             <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
         </main>
@@ -90,13 +105,6 @@
                     this.user = this.$storage.get('user')
                     console.log(this.user)
                 }
-            },
-            loginOut() {
-                // TODO 请求
-                this.$storage.set('accessToken', null)
-                this.$storage.set('user', null)
-                this.isLogin = false
-                this.user = null
             },
             time(item) {
                 let startTime = new Date(item.startTime)
