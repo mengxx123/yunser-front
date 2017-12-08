@@ -30,6 +30,7 @@
             <router-link to="/mine">个人中心</router-link>
 
             <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
+            <a href="http://team.yunser.com" target="_blank">关于我们</a>
         </main>
         <ui-footer></ui-footer>
         <mu-drawer :open="open" :docked="docked" @close="toggle()">
