@@ -17,7 +17,7 @@
                     <router-link to="/debug">调试</router-link>
                 </div>
                 <div>
-                    <router-link to="/account"
+                    <router-link to="/account">账号中心</router-link>
                 </div>
             </div>
             <div v-else>

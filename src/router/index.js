@@ -68,7 +68,6 @@ const AddressEdit = resolve => require(['VIEW/shop/AddressEdit'], resolve)
 
 const County = resolve => require(['VIEW/County'], resolve)
 
-<<<<<<< HEAD
 // 开发者平台
 const Debug = resolve => require(['VIEW/Debug'], resolve)
 const Develop = resolve => require(['VIEW/develop/Home'], resolve)
@@ -78,9 +77,8 @@ const AdminDeveloper = resolve => require(['VIEW/develop/Admin'], resolve)
 const AdminEmail = resolve => require(['VIEW/admin/Email'], resolve)
 
 const Error404 = resolve => require(['VIEW/Error404'], resolve)
-=======
+
 const Exam = resolve => require(['VIEW/Exam'], resolve)
->>>>>>> be153de8c439de1ba5624048dd66e05830bc4520
 
 Vue.use(Router)
 
