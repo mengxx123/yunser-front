@@ -23,7 +23,7 @@ module.exports = {
         'generator-star-spacing': 0,
         // allow debugger during development
         'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-        'indent': [1, 4, { 'SwitchCase': 1 }],
+        'indent': [1, 4, {'SwitchCase': 1}],
         'space-before-function-paren': 0
     }
 }

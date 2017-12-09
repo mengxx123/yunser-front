@@ -29,6 +29,8 @@
             <router-link to="/articles/1">文章详情</router-link>
             <router-link to="/mine">个人中心</router-link>
 
+            <router-link to="/team">团队</router-link>
+
             <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
             <a href="http://team.yunser.com" target="_blank">关于我们</a>
         </main>
