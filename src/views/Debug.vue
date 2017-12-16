@@ -43,6 +43,9 @@
             <router-link to="/me/addresses">收货地址</router-link>
             <div>开发者</div>
             <router-link to="/develop">开发者平台</router-link>
+            <h1>文件</h1>
+            <router-link to="/files">本地文件列表</router-link>
+            <router-link to="/files2">网络文件列表</router-link>
 
             <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
         </main>

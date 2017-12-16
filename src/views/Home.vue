@@ -27,8 +27,11 @@
 
             <router-link to="/login">登录</router-link>
             <router-link to="/articles/1">文章详情</router-link>
+            <router-link to="/articles">文章列表</router-link>
             <router-link to="/mine">个人中心</router-link>
-
+            <ul>
+                <li><a href="http://tool.yunsr.com">工具</a> </li>
+            </ul>
             <router-link to="/team">团队</router-link>
             <router-link to="/jokes">笑话</router-link>
 

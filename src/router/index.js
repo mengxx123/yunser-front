@@ -28,6 +28,7 @@ const Settings = resolve => require(['VIEW/Settings'], resolve)
 const Help = resolve => require(['VIEW/Help'], resolve)
 
 const File = resolve => require(['VIEW/file/File'], resolve)
+const File2 = resolve => require(['VIEW/file/File2'], resolve)
 const FileDetail = resolve => require(['VIEW/file/FileDetail'], resolve)
 const FileEdit = resolve => require(['VIEW/file/FileEdit'], resolve)
 
@@ -149,7 +150,12 @@ let routes = [
     {
         path: '/files',
         component: File
-    }, {
+    },
+    {
+        path: '/files2',
+        component: File2
+    },
+    {
         path: '/files/:path/edit',
         component: FileEdit
     }, {
