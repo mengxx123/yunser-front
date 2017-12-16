@@ -1,13 +1,13 @@
 <template>
     <div class="page page-home">
-        <header class="page-header">
-            <mu-appbar title="云设">
-                <mu-icon-button icon="menu" slot="left" @click="toggle(true)"/>
-                <mu-icon-menu icon="more_vert" slot="right">
-                    <mu-menu-item title="分享"/>
-                </mu-icon-menu>
-            </mu-appbar>
-        </header>
+        <!--<header class="page-header">-->
+            <!--<mu-appbar title="云设">-->
+                <!--<mu-icon-button icon="menu" slot="left" @click="toggle(true)"/>-->
+                <!--<mu-icon-menu icon="more_vert" slot="right">-->
+                    <!--<mu-menu-item title="分享"/>-->
+                <!--</mu-icon-menu>-->
+            <!--</mu-appbar>-->
+        <!--</header>-->
         <main class="page-body">
             <div v-if="isLogin">
                 <p>欢迎您</p>
@@ -30,7 +30,9 @@
             <router-link to="/mine">个人中心</router-link>
 
             <router-link to="/team">团队</router-link>
+            <router-link to="/jokes">笑话</router-link>
 
+            <img :src="qrcodeUrl">
             <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
             <!--<a href="http://team.yunser.com" target="_blank">关于我们</a> -->
             
@@ -69,6 +71,7 @@
     export default {
         data () {
             return {
+                qrcodeUrl: '',
                 open: false,
                 docked: true,
                 isLogin: false,
@@ -88,6 +91,7 @@
         },
         methods: {
             init() {
+                this.qrcodeUrl = 'http://localhost:1026/qrcode?content=' + encodeURIComponent('https://www.yunser.com')
                 // 检查登录
                 if (this.$storage.get('accessToken')) {
                     this.isLogin = true

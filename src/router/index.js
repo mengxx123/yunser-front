@@ -79,6 +79,9 @@ const AdminEmail = resolve => require(['VIEW/admin/Email'], resolve)
 const Error404 = resolve => require(['VIEW/Error404'], resolve)
 
 const Exam = resolve => require(['VIEW/Exam'], resolve)
+// 笑话
+const Joke = resolve => require(['VIEW/joke/Joke'], resolve)
+const JokeDetail = resolve => require(['VIEW/joke/JokeDetail'], resolve)
 
 Vue.use(Router)
 
@@ -313,7 +316,16 @@ let routes = [
     {
         path: '*',
         redirect: '/404'
-    }
+    },
+    // 笑话
+    {
+        path: '/jokes',
+        component: Joke
+    },
+    {
+        path: '/jokes/:id',
+        component: JokeDetail
+    },
 ]
 
 let router = new Router({
