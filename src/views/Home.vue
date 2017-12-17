@@ -1,46 +1,51 @@
 <template>
     <div class="page page-home">
-        <!--<header class="page-header">-->
-            <!--<mu-appbar title="云设">-->
-                <!--<mu-icon-button icon="menu" slot="left" @click="toggle(true)"/>-->
+        <header class="page-header">
+            <mu-appbar title="云设">
+                <mu-icon-button icon="menu" slot="left" @click="toggle(true)"/>
                 <!--<mu-icon-menu icon="more_vert" slot="right">-->
                     <!--<mu-menu-item title="分享"/>-->
                 <!--</mu-icon-menu>-->
-            <!--</mu-appbar>-->
-        <!--</header>-->
+            </mu-appbar>
+        </header>
         <main class="page-body">
-            <div v-if="isLogin">
-                <p>欢迎您</p>
-                {{ user.name }}
-                <div @click="loginOut">退出登录</div>
-                <div v-if="user.id === '1'">
-                    <router-link to="/debug">调试</router-link>
+            <div class="container">
+                <div v-if="isLogin">
+                    <p>欢迎您</p>
+                    {{ user.name }}
+                    <div @click="loginOut">退出登录</div>
+                    <div v-if="user.id === '1'">
+                        <router-link to="/debug">调试</router-link>
+                    </div>
+                    <div>
+                        <router-link to="/account">账号中心</router-link>
+                    </div>
                 </div>
-                <div>
-                    <router-link to="/account">账号中心</router-link>
+                <div v-else>
+                    <router-link to="/login">登录</router-link>
+                    <mu-raised-button label="注册" primary to="/register"/>
                 </div>
-            </div>
-            <div v-else>
+
                 <router-link to="/login">登录</router-link>
-                <mu-raised-button label="注册" primary to="/register"/>
+                <router-link to="/articles/1">文章详情</router-link>
+                <router-link to="/articles">文章列表</router-link>
+                <router-link to="/mine">个人中心</router-link>
+                <router-link to="/debug">调试</router-link>
+
+                <h2>产品大全</h2>
+                <ul>
+                    <li><a href="http://tool.yunser.com" target="_blank">云设工具</a> </li>
+                    <li><router-link to="/jokes">笑话</router-link></li>
+                </ul>
+                <router-link to="/team">团队</router-link>
+
+
+                <img :src="qrcodeUrl">
+                <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
+                <!--<a href="http://team.yunser.com" target="_blank">关于我们</a> -->
             </div>
-
-            <router-link to="/login">登录</router-link>
-            <router-link to="/articles/1">文章详情</router-link>
-            <router-link to="/articles">文章列表</router-link>
-            <router-link to="/mine">个人中心</router-link>
-            <ul>
-                <li><a href="http://tool.yunsr.com">工具</a> </li>
-            </ul>
-            <router-link to="/team">团队</router-link>
-            <router-link to="/jokes">笑话</router-link>
-
-            <img :src="qrcodeUrl">
-            <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
-            <!--<a href="http://team.yunser.com" target="_blank">关于我们</a> -->
-            
         </main>
-        <ui-footer></ui-footer>
+        <!--<ui-footer></ui-footer>-->
         <mu-drawer :open="open" :docked="docked" @close="toggle()">
             <mu-list @itemClick="docked ? '' : toggle()">
                 <mu-list-item title="个人资料">
