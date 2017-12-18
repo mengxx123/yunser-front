@@ -35,6 +35,7 @@
                 <h2>产品大全</h2>
                 <ul>
                     <li><a href="http://tool.yunser.com" target="_blank">云设工具</a> </li>
+                    <li><a href="http://chart.yunser.com" target="_blank">云设图+</a> </li>
                     <li><router-link to="/jokes">笑话</router-link></li>
                 </ul>
                 <router-link to="/team">团队</router-link>
