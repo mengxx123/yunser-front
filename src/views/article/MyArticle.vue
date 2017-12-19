@@ -23,7 +23,7 @@
 
             </mu-content-block>
         </main>
-        <mu-float-button class="ui-float-btn" icon="add" to="/me/articles/add"/>
+        <mu-float-button class="ui-float-btn" icon="add" to="/articles/add"/>
     </div>
 </template>
 

@@ -32,6 +32,10 @@
                 <router-link to="/mine">个人中心</router-link>
                 <router-link to="/debug">调试</router-link>
 
+                <h2>个人中心</h2>
+                <router-link to="/mine">个人中心</router-link>
+                <router-link to="/me/articles">我的文章</router-link>
+
                 <h2>产品大全</h2>
                 <ul>
                     <li><a href="http://tool.yunser.com" target="_blank">云设工具</a> </li>

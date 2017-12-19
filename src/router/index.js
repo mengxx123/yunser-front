@@ -172,6 +172,10 @@ let routes = [
         component: Article
     },
     {
+        path: '/articles/add',
+        component: ArticleAdd
+    },
+    {
         path: '/articles/:id',
         component: ArticleDetail
     },
