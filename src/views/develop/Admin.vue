@@ -1,45 +1,45 @@
 <template>
     <div class="page page-home">
         <div class="page-side ui-paper-1">
-            <mu-list>
-                <mu-list-item title="应用管理" to="/admin/develop/apps"/>
-                <mu-list-item title="用户管理" to="/admin/apps/1/users"/>
-                <mu-list-item title="文件管理" to="/files"/>
-                <mu-list-item title="系统" to="/admin/system"/>
-                <mu-list-item title="文章管理"/>
-                <mu-list-item title="统计分析"/>
-                <mu-list-item title="用户管理" toggleNested>
-                    <mu-icon slot="left" value="inbox"/>
-                    <mu-list-item slot="nested" title="Starred">
-                        <mu-icon slot="left" value="grade"/>
-                    </mu-list-item>
-                    <mu-list-item slot="nested" disabled title="Sent mail" toggleNested>
-                        <mu-icon slot="left" value="send"/>
-                        <mu-list-item title="Drafts" slot="nested">
-                            <mu-icon slot="left" value="drafts"/>
-                        </mu-list-item>
-                    </mu-list-item>
-                    <mu-list-item slot="nested" title="Inbox" toggleNested>
-                        <mu-icon slot="left" value="inbox"/>
-                        <mu-list-item title="Drafts" slot="nested">
-                            <mu-icon slot="left" value="drafts"/>
-                        </mu-list-item>
-                    </mu-list-item>
-                </mu-list-item>
-            </mu-list>
+            <ui-list>
+                <ui-list-item title="应用管理" to="/admin/develop/apps"/>
+                <ui-list-item title="用户管理" to="/admin/apps/1/users"/>
+                <ui-list-item title="文件管理" to="/files"/>
+                <ui-list-item title="系统" to="/admin/system"/>
+                <ui-list-item title="文章管理"/>
+                <ui-list-item title="统计分析"/>
+                <ui-list-item title="用户管理" toggleNested>
+                    <ui-icon slot="left" value="inbox"/>
+                    <ui-list-item slot="nested" title="Starred">
+                        <ui-icon slot="left" value="grade"/>
+                    </ui-list-item>
+                    <ui-list-item slot="nested" disabled title="Sent mail" toggleNested>
+                        <ui-icon slot="left" value="send"/>
+                        <ui-list-item title="Drafts" slot="nested">
+                            <ui-icon slot="left" value="drafts"/>
+                        </ui-list-item>
+                    </ui-list-item>
+                    <ui-list-item slot="nested" title="Inbox" toggleNested>
+                        <ui-icon slot="left" value="inbox"/>
+                        <ui-list-item title="Drafts" slot="nested">
+                            <ui-icon slot="left" value="drafts"/>
+                        </ui-list-item>
+                    </ui-list-item>
+                </ui-list-item>
+            </ui-list>
         </div>
         <div class="page-content">
             <header class="page-header">
-                <mu-appbar title="开发者管理平台">
-                    <mu-icon-button icon="menu" slot="left"/>
-                </mu-appbar>
+                <ui-appbar title="开发者管理平台">
+                    <ui-icon-button icon="menu" slot="left"/>
+                </ui-appbar>
             </header>
             <main class="page-body">
-                <mu-content-block>
+                <ui-content-block>
                     <router-link to="/system">系统</router-link>
                     <p>云设工具致力于开发工具类 App，方便提高用户日常生活的效率。如果你有需求，我们也可以为你开发工具类 App！</p>
                     <p>给我们发邮件：admin@yunser.com</p>
-                </mu-content-block>
+                </ui-content-block>
 
             </main>
         </div>

@@ -1,11 +1,11 @@
 <template>
-    <footer class="page-nav">
-        <mu-bottom-nav :value="bottomNav" @change="handleChange">
-            <mu-bottom-nav-item value="home" title="活动" icon="home" @click.native="page('/')"/>
-            <mu-bottom-nav-item value="history" title="历史" icon="history" @click.native="page('/history')"/>
-            <mu-bottom-nav-item value="mine" title="个人中心" icon="event" @click.native="page('/mine')"/>
-            <mu-bottom-nav-item value="more" title="更多" icon="send" @click.native="page('/more')"/>
-        </mu-bottom-nav>
+    <footer class="page-nav" v-if="false">
+        <ui-bottom-nav :value="bottomNav" @change="handleChange">
+            <ui-bottom-nav-item value="home" title="活动" icon="home" @click.native="page('/')"/>
+            <ui-bottom-nav-item value="history" title="历史" icon="history" @click.native="page('/history')"/>
+            <ui-bottom-nav-item value="mine" title="个人中心" icon="event" @click.native="page('/mine')"/>
+            <ui-bottom-nav-item value="more" title="更多" icon="send" @click.native="page('/more')"/>
+        </ui-bottom-nav>
     </footer>
 </template>
 

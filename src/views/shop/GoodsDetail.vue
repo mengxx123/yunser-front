@@ -1,25 +1,17 @@
 <template>
-    <div class="page page-home">
-        <header class="page-header">
-            <mu-appbar :title="title">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
-        </header>
-        <main class="page-body">
-            <ul class="" v-if="goods">
-                <div>{{ goods.name }}</div>
-                <div>{{ goods.description }}</div>
-            </ul>
-            <hr>
-        </main>
-    </div>
+    <ui-admin-page name="app" :page="{title: '商品详情'}">
+        <ul class="" v-if="goods">
+            <div>{{ goods.name }}</div>
+            <div>{{ goods.description }}</div>
+        </ul>
+        <hr>
+    </ui-admin-page>
 </template>
 
 <script>
     export default {
         data () {
             return {
-                title: '商品详情',
                 goods: null
             }
         },
@@ -33,9 +25,7 @@
                     .then(response => {
                         let data = response.data
                         console.log(data)
-                        if (data.code === 0) {
-                            this.goods = data.data
-                        }
+                        this.goods = data
                     },
                     response => {
                         console.log(response)

@@ -1,16 +1,16 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="选择地区">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="back" />
-            </mu-appbar>
+            <ui-appbar title="选择地区">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="back" />
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-list>
-                <mu-list-item :title="area.name" v-for="area in areas" @click="selectArea(area)">
-                    <!--<mu-icon slot="right" value="inbox" />-->
-                </mu-list-item>
-            </mu-list>
+            <ui-list>
+                <ui-list-item :title="area.name" v-for="area in areas" @click="selectArea(area)">
+                    <!--<ui-icon slot="right" value="inbox" />-->
+                </ui-list-item>
+            </ui-list>
         </main>
     </div>
 </template>

@@ -1,80 +1,18 @@
 <template>
-    <div class="page page-home">
-        <div class="page-side ui-paper-1">
-            <mu-list>
-                <mu-list-item title="菜单管理" to="/admin/menus"/>
-                <mu-list-item title="用户管理" to="/admin/users"/>
-                <mu-list-item title="邮件管理" to="/admin/email"/>
-                <mu-list-item title="商家管理" to="/admin/email"/>
-                <mu-list-item title="店铺管理" to="/admin/email"/>
-                <mu-list-item title="应用管理" to="/admin/apps"/>
-                <mu-list-item title="文件管理" to="/files"/>
-                <mu-list-item title="系统" to="/admin/system"/>
-                <mu-list-item title="文章管理"/>
-                <mu-list-item title="店铺管理" toggleNested>
-                    <mu-icon slot="left" value="inbox"/>
-                    <mu-list-item slot="nested" title="Starred">
-                        <mu-icon slot="left" value="grade"/>
-                    </mu-list-item>
-                    <mu-list-item slot="nested" disabled title="Sent mail" toggleNested>
-                        <mu-icon slot="left" value="send"/>
-                        <mu-list-item title="Drafts" slot="nested">
-                            <mu-icon slot="left" value="drafts"/>
-                        </mu-list-item>
-                    </mu-list-item>
-                    <mu-list-item slot="nested" title="Inbox" toggleNested>
-                        <mu-icon slot="left" value="inbox"/>
-                        <mu-list-item title="Drafts" slot="nested">
-                            <mu-icon slot="left" value="drafts"/>
-                        </mu-list-item>
-                    </mu-list-item>
-                </mu-list-item>
-                <mu-list-item title="用户管理" toggleNested>
-                    <mu-icon slot="left" value="inbox"/>
-                    <mu-list-item slot="nested" title="Starred">
-                        <mu-icon slot="left" value="grade"/>
-                    </mu-list-item>
-                    <mu-list-item slot="nested" disabled title="Sent mail" toggleNested>
-                        <mu-icon slot="left" value="send"/>
-                        <mu-list-item title="Drafts" slot="nested">
-                            <mu-icon slot="left" value="drafts"/>
-                        </mu-list-item>
-                    </mu-list-item>
-                    <mu-list-item slot="nested" title="Inbox" toggleNested>
-                        <mu-icon slot="left" value="inbox"/>
-                        <mu-list-item title="Drafts" slot="nested">
-                            <mu-icon slot="left" value="drafts"/>
-                        </mu-list-item>
-                    </mu-list-item>
-                </mu-list-item>
-            </mu-list>
-        </div>
-        <div class="page-content">
-            <header class="page-header">
-                <mu-appbar title="管理平台">
-                    <mu-icon-button icon="menu" slot="left"/>
-                </mu-appbar>
-            </header>
-            <main class="page-body">
-                <mu-content-block>
-                    <router-link to="/system">系统</router-link>
-                    <p>云设工具致力于开发工具类 App，方便提高用户日常生活的效率。如果你有需求，我们也可以为你开发工具类 App！</p>
-                    <p>给我们发邮件：admin@yunser.com</p>
-                </mu-content-block>
-
-            </main>
-        </div>
-
-        <!--<mu-drawer :open="true" :docked="true">-->
-
-        <!--</mu-drawer>-->
-    </div>
+    <ui-admin-page name="home" :page="page">
+        <router-link to="/system">系统2</router-link>
+        <p>云设工具致力于开发工具类 App，方便提高用户日常生活的效率。如果你有需求，我们也可以为你开发工具类 App！</p>
+        <p>给我们发邮件：admin@yunser.com</p>
+    </ui-admin-page>
 </template>
 
 <script>
     export default {
         data () {
             return {
+                page: {
+                    title: '管理平台'
+                },
                 items: [{
                     name: '跑步',
                     startTime: 1510381344285,

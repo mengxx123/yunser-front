@@ -1,15 +1,15 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="页面找不到了">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="页面找不到了">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-content-block>
+            <ui-content-block>
                 <div>404</div>
                 <div>页面找不到了</div>
-            </mu-content-block>
+            </ui-content-block>
 
         </main>
     </div>

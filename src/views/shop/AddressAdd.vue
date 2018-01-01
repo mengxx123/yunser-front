@@ -1,22 +1,22 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="添加新地址">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-                <mu-flat-button color="white" label="保存" slot="right" @click="save"/>
-            </mu-appbar>
+            <ui-appbar title="添加新地址">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+                <ui-flat-button color="white" label="保存" slot="right" @click="save"/>
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-content-block>
+            <ui-content-block>
                 <div>
-                    <mu-text-field v-model="address.receiver" label="收货人" labelFloat/><br/>
-                    <mu-text-field v-model="address.phone" label="联系电话" labelFloat/><br/>
-                    <mu-text-field v-model="address.county" label="所在地区" labelFloat/><br/>
-                    <mu-text-field v-model="address.area" label="街道" labelFloat/><br/>
-                    <mu-text-field v-model="address.detail" label="详细地址" labelFloat/><br/>
-                    <mu-checkbox label="设为默认地址" class="demo-checkbox"/> <br/>
+                    <ui-text-field v-model="address.receiver" label="收货人" labelFloat/><br/>
+                    <ui-text-field v-model="address.phone" label="联系电话" labelFloat/><br/>
+                    <ui-text-field v-model="address.county" label="所在地区" labelFloat/><br/>
+                    <ui-text-field v-model="address.area" label="街道" labelFloat/><br/>
+                    <ui-text-field v-model="address.detail" label="详细地址" labelFloat/><br/>
+                    <ui-checkbox label="设为默认地址" class="demo-checkbox"/> <br/>
                 </div>
-            </mu-content-block>
+            </ui-content-block>
         </main>
     </div>
 </template>

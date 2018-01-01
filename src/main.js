@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import MuseUI from 'muse-ui'
-import 'muse-ui/dist/muse-ui.css'
-import 'muse-ui/dist/theme-light.css'
+
+import YunserUI from 'yunser-ui-vue'
+import 'yunser-ui-vue/dist/yunser-ui.css'
+import 'yunser-ui-vue/dist/theme-light.css'
+
 import './scss/main.scss'
 import ui from './components/index'
 import http from './util/http'
@@ -13,7 +15,7 @@ import qs from 'qs'
 import storage from './util/storage'
 import './scss/index.scss'
 
-Vue.use(MuseUI)
+Vue.use(YunserUI)
 Vue.use(ui)
 
 Vue.config.productionTip = false

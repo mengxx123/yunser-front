@@ -1,34 +1,34 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="文章详情">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="文章详情">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-content-block>
+            <ui-content-block>
                 <div v-if="article">
                     <div>{{ article.title }}</div>
                     <div v-html="article.content"></div>
                 </div>
-            </mu-content-block>
-            <mu-list>
-                <mu-sub-header>评论</mu-sub-header>
-                <mu-list-item title="小明" v-for="comment in comments">
-                    <mu-avatar src="/images/avatar1.jpg" slot="leftAvatar"/>
+            </ui-content-block>
+            <ui-list>
+                <ui-sub-header>评论</ui-sub-header>
+                <ui-list-item title="小明" v-for="comment in comments">
+                    <ui-avatar src="/images/avatar1.jpg" slot="leftAvatar"/>
                     <span slot="describe" v-html="comment.content"></span>
                     <div>{{ comment.updateTime }}</div>
-                    <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-                        <mu-menu-item title="回复" />
-                        <mu-menu-item title="标记" />
-                        <mu-menu-item title="删除" />
-                    </mu-icon-menu>
-                </mu-list-item>
-                <mu-divider inset/>
-            </mu-list>
+                    <ui-icon-menu slot="right" icon="more_vert" tooltip="操作">
+                        <ui-menu-item title="回复" />
+                        <ui-menu-item title="标记" />
+                        <ui-menu-item title="删除" />
+                    </ui-icon-menu>
+                </ui-list-item>
+                <ui-divider inset/>
+            </ui-list>
             <div>
-                <mu-text-field hintText="评论内容"/>
-                <mu-raised-button label="评论" class="demo-raised-button" primary/>
+                <ui-text-field hintText="评论内容"/>
+                <ui-raised-button label="评论" class="demo-raised-button" primary/>
             </div>
         </main>
     </div>

@@ -1,17 +1,17 @@
 <template>
     <div class="page page-more">
         <header class="page-header">
-            <mu-appbar title="更多"></mu-appbar>
+            <ui-appbar title="更多"></ui-appbar>
         </header>
         <main class="page-body">
-            <mu-list class="setting-list">
-                <mu-list-item title="帮助与反馈"></mu-list-item>
-                <mu-divider/>
-                <mu-list-item title="版本">
-                </mu-list-item>
-                <mu-divider/>
-                <mu-list-item title="关于我们" to="/about"></mu-list-item>
-            </mu-list>
+            <ui-list class="setting-list">
+                <ui-list-item title="帮助与反馈"></ui-list-item>
+                <ui-divider/>
+                <ui-list-item title="版本">
+                </ui-list-item>
+                <ui-divider/>
+                <ui-list-item title="关于我们" to="/about"></ui-list-item>
+            </ui-list>
         </main>
         <ui-footer></ui-footer>
     </div>

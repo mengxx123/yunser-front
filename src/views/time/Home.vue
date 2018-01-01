@@ -1,27 +1,27 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="时间记录">
-                <mu-icon-button icon="menu" slot="left" @click="toggle(true)"/>
-                <mu-icon-menu icon="more_vert" slot="right">
-                    <mu-menu-item title="分享"/>
-                </mu-icon-menu>
-            </mu-appbar>
+            <ui-appbar title="时间记录">
+                <ui-icon-button icon="menu" slot="left" @click="toggle(true)"/>
+                <ui-icon-menu icon="more_vert" slot="right">
+                    <ui-menu-item title="分享"/>
+                </ui-icon-menu>
+            </ui-appbar>
         </header>
         <main class="page-body">
             <router-view/>
         </main>
         <ui-time-footer></ui-time-footer>
-        <mu-drawer :open="open" :docked="docked" @close="toggle()">
+        <ui-drawer :open="open" :docked="docked" @close="toggle()">
 
-            <mu-list @itemClick="docked ? '' : toggle()">
-                <mu-list-item title="Menu Item 1"/>
-                <mu-list-item title="Menu Item 2"/>
-                <mu-list-item title="Menu Item 3"/>
-                <mu-list-item v-if="docked" @click.native="open = false" title="Close"/>
-            </mu-list>
-        </mu-drawer>
-        <mu-float-button icon="add" class="page-add" @click="add"/>
+            <ui-list @itemClick="docked ? '' : toggle()">
+                <ui-list-item title="Menu Item 1"/>
+                <ui-list-item title="Menu Item 2"/>
+                <ui-list-item title="Menu Item 3"/>
+                <ui-list-item v-if="docked" @click.native="open = false" title="Close"/>
+            </ui-list>
+        </ui-drawer>
+        <ui-float-button icon="add" class="page-add" @click="add"/>
     </div>
 </template>
 

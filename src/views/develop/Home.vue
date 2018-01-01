@@ -1,9 +1,9 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="开发者平台">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="开发者平台">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             <div v-if="developer">
@@ -13,9 +13,9 @@
                 <button @click="register">成为开发者</button>
             </div>
 
-            <mu-content-block>
+            <ui-content-block>
 
-            </mu-content-block>
+            </ui-content-block>
 
         </main>
     </div>

@@ -1,9 +1,9 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="笑话大全">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="笑话大全">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             <ul class="joke-list">
@@ -11,15 +11,15 @@
                     <div @click="view(joke, index)">{{ joke.title }}</div>
                 </li>
                 <template>
-                    <mu-pagination :total="totalPage" :current="page" @pageChange="pageChange">
-                    </mu-pagination>
+                    <ui-pagination :total="totalPage" :current="page" @pageChange="pageChange">
+                    </ui-pagination>
                 </template>
             </ul>
-            <mu-content-block>
+            <ui-content-block>
                 <button type="button" @click="next">下一个</button>
                 <h1>{{ joke.title }}</h1>
                 <article v-html="joke.content"></article>
-            </mu-content-block>
+            </ui-content-block>
 
         </main>
     </div>

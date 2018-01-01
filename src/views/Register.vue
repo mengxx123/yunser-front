@@ -1,22 +1,22 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="注册">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="注册">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             <div class="login-box">
                 <div>
-                    <mu-text-field v-model="account" label="邮箱" labelFloat/>
+                    <ui-text-field v-model="account" label="邮箱" labelFloat/>
                 </div>
                 <div>
-                    <mu-text-field v-model="nickname" label="昵称" labelFloat/>
+                    <ui-text-field v-model="nickname" label="昵称" labelFloat/>
                 </div>
                 <div>
-                    <mu-text-field v-model="password" label="密码" labelFloat/>
+                    <ui-text-field v-model="password" label="密码" labelFloat/>
                 </div>
-                <mu-raised-button class="login-btn" label="注册" primary @click="register"/>
+                <ui-raised-button class="login-btn" label="注册" primary @click="register"/>
             </div>
         </main>
     </div>

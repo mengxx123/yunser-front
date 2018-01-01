@@ -1,7 +1,7 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="统计"></mu-appbar>
+            <ui-appbar title="统计"></ui-appbar>
         </header>
         <main class="page-body">
             <h2>统计</h2>

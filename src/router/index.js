@@ -27,26 +27,25 @@ const Add = resolve => require(['VIEW/Add'], resolve)
 const Settings = resolve => require(['VIEW/Settings'], resolve)
 const Help = resolve => require(['VIEW/Help'], resolve)
 
-const File = resolve => require(['VIEW/file/File'], resolve)
-const File2 = resolve => require(['VIEW/file/File2'], resolve)
-const FileDetail = resolve => require(['VIEW/file/FileDetail'], resolve)
-const FileEdit = resolve => require(['VIEW/file/FileEdit'], resolve)
-
 const Admin = resolve => require(['VIEW/admin/Index'], resolve)
 const AdminLogin = resolve => require(['VIEW/admin/Login'], resolve)
-
-const AdminUser = resolve => require(['VIEW/admin/User'], resolve)
-const AdminUserAdd = resolve => require(['VIEW/admin/UserAdd'], resolve)
-const AdminUserDetail = resolve => require(['VIEW/admin/UserDetail'], resolve)
+// 用户
+const AdminUser = resolve => require(['VIEW/user/User'], resolve)
+const AdminUserAdd = resolve => require(['VIEW/user/UserAdd'], resolve)
+const AdminUserDetail = resolve => require(['VIEW/user/UserDetail'], resolve)
 
 const AdminManager = resolve => require(['VIEW/admin/Manager'], resolve)
 const AdminManagerDetail = resolve => require(['VIEW/admin/ManagerDetail'], resolve)
 
-const Menu = resolve => require(['VIEW/admin/Menu'], resolve)
+// 应用
+const AdminApp = resolve => require(['VIEW/app/App'], resolve)
+const AdminAppDetail = resolve => require(['VIEW/app/AppDetail'], resolve)
 
-const AdminApp = resolve => require(['VIEW/admin/App'], resolve)
+const Ticket = resolve => require(['VIEW/ticket/Ticket'], resolve)
 
+// 系统
 const System = resolve => require(['VIEW/system/Index'], resolve)
+const Menu = resolve => require(['VIEW/menu/Menu'], resolve)
 
 const Project = resolve => require(['VIEW/project/Index'], resolve)
 
@@ -61,6 +60,7 @@ const TimeHistory = resolve => require(['VIEW/time/History'], resolve)
 const TimeMore = resolve => require(['VIEW/time/More'], resolve)
 const TimeAdd = resolve => require(['VIEW/time/Add'], resolve)
 // 商城
+const Shop = resolve => require(['VIEW/shop/Shop'], resolve)
 const ShopDetail = resolve => require(['VIEW/shop/ShopDetail'], resolve)
 const GoodsDetail = resolve => require(['VIEW/shop/GoodsDetail'], resolve)
 const MyAddress = resolve => require(['VIEW/shop/Address'], resolve)
@@ -74,15 +74,30 @@ const Debug = resolve => require(['VIEW/Debug'], resolve)
 const Develop = resolve => require(['VIEW/develop/Home'], resolve)
 const DeveloperAdd = resolve => require(['VIEW/develop/Add'], resolve)
 const AdminDeveloper = resolve => require(['VIEW/develop/Admin'], resolve)
+
+const WeiboCallback = resolve => require(['VIEW/weibo/Callback'], resolve)
 // 邮件
-const AdminEmail = resolve => require(['VIEW/admin/Email'], resolve)
+const AdminEmail = resolve => require(['VIEW/email/Email'], resolve)
+const EmailNew = resolve => require(['VIEW/email/EmailNew'], resolve)
+const Sms = resolve => require(['VIEW/sms/Sms'], resolve)
+const SmsLog = resolve => require(['VIEW/sms/Log'], resolve)
+const SmsSend = resolve => require(['VIEW/sms/Send'], resolve)
+
+const Role = resolve => require(['VIEW/permission/Role'], resolve)
+const RoleDetail = resolve => require(['VIEW/permission/RoleDetail'], resolve)
+const UserRole = resolve => require(['VIEW/permission/UserRole'], resolve)
+const Permission = resolve => require(['VIEW/permission/Permission'], resolve)
 
 const Error404 = resolve => require(['VIEW/Error404'], resolve)
+const AdminError404 = resolve => require(['VIEW/admin/Error404'], resolve)
 
 const Exam = resolve => require(['VIEW/Exam'], resolve)
 // 笑话
 const Joke = resolve => require(['VIEW/joke/Joke'], resolve)
 const JokeDetail = resolve => require(['VIEW/joke/JokeDetail'], resolve)
+
+const Profile = resolve => require(['VIEW/account/Profile'], resolve)
+const Secure = resolve => require(['VIEW/account/Secure'], resolve)
 
 Vue.use(Router)
 
@@ -103,12 +118,16 @@ let routes = [
         component: Count
     },
     {
-        path: '/404',
-        component: Error404
-    },
-    {
         path: '/about',
         component: About
+    },
+    {
+        path: '/account/profile',
+        component: Profile
+    },
+    {
+        path: '/account/secure',
+        component: Secure
     },
     {
         path: '/feedback',
@@ -130,7 +149,7 @@ let routes = [
         component: Mine,
         meta: {
             auth: true
-        },
+        }
     },
     // 其他
     {
@@ -146,22 +165,7 @@ let routes = [
         path: '/admin/menus',
         component: Menu
     },
-    // 文件相关
-    {
-        path: '/files',
-        component: File
-    },
-    {
-        path: '/files2',
-        component: File2
-    },
-    {
-        path: '/files/:path/edit',
-        component: FileEdit
-    }, {
-        path: '/files/detail',
-        component: FileDetail
-    },
+
     {
         path: '/users/:id',
         component: UserDetail
@@ -216,10 +220,19 @@ let routes = [
         path: '/admin/users/:id',
         component: AdminUserDetail
     },
+    // 工单
+    {
+        path: '/admin/tickets',
+        component: Ticket
+    },
     // 应用管理
     {
         path: '/admin/apps',
         component: AdminApp
+    },
+    {
+        path: '/admin/apps/:id',
+        component: AdminAppDetail
     },
     // 系统
     {
@@ -251,11 +264,15 @@ let routes = [
     },
     // 商城
     {
-        path: '/shops/:id',
+        path: '/admin/shops',
+        component: Shop
+    },
+    {
+        path: '/admin/shops/:id',
         component: ShopDetail
     },
     {
-        path: '/goodses/:id',
+        path: '/admin/goodses/:id',
         component: GoodsDetail
     },
     {
@@ -318,14 +335,46 @@ let routes = [
         path: '/admin/develop',
         component: AdminDeveloper
     },
+    {
+        path: '/weibo/callback',
+        component: WeiboCallback
+    },
     // 邮件
     {
         path: '/admin/email',
         component: AdminEmail
     },
     {
-        path: '*',
-        redirect: '/404'
+        path: '/admin/email/new',
+        component: EmailNew
+    },
+    {
+        path: '/admin/sms',
+        component: Sms
+    },
+    {
+        path: '/admin/sms/logs',
+        component: SmsLog
+    },
+    {
+        path: '/admin/sms/send',
+        component: SmsSend
+    },
+    {
+        path: '/admin/roles',
+        component: Role
+    },
+    {
+        path: '/admin/roles/:id',
+        component: RoleDetail
+    },
+    {
+        path: '/admin/users/:id/roles',
+        component: UserRole
+    },
+    {
+        path: '/admin/permissions',
+        component: Permission
     },
     // 笑话
     {
@@ -336,6 +385,18 @@ let routes = [
         path: '/jokes/:id',
         component: JokeDetail
     },
+    {
+        path: '/404',
+        component: Error404
+    },
+    {
+        path: '/admin/*',
+        component: AdminError404
+    },
+    {
+        path: '*',
+        component: Error404
+    }
 ]
 
 let router = new Router({

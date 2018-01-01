@@ -1,9 +1,9 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="登录">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="登录">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             <input v-model="account" placeholder="用户名或邮箱">

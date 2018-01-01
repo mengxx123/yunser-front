@@ -1,18 +1,18 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="添加文章">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="添加文章">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-content-block>
+            <ui-content-block>
                 <input v-model="title">
                 <textarea v-model="content"></textarea>
                 <button @click="add">添加</button>
-            </mu-content-block>
+            </ui-content-block>
         </main>
-        <mu-float-button class="ui-float-btn" icon="add" to="/me/articles/add"/>
+        <ui-float-button class="ui-float-btn" icon="add" to="/me/articles/add"/>
     </div>
 </template>
 

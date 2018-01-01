@@ -1,16 +1,16 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="添加用户">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="添加用户">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-breadcrumb class="breadcrumb">
-                <mu-breadcrumb-item href="/">首页</mu-breadcrumb-item>
-                <mu-breadcrumb-item href="/admin/users">用户管理</mu-breadcrumb-item>
-                <mu-breadcrumb-item>添加用户</mu-breadcrumb-item>
-            </mu-breadcrumb>
+            <ui-breadcrumb class="breadcrumb">
+                <ui-breadcrumb-item href="/">首页</ui-breadcrumb-item>
+                <ui-breadcrumb-item href="/admin/users">用户管理</ui-breadcrumb-item>
+                <ui-breadcrumb-item>添加用户</ui-breadcrumb-item>
+            </ui-breadcrumb>
             <div>
                 <input v-model="user.nickname" placeholder="昵称"/>
                 <input v-model="user.password" placeholder="密码"/>

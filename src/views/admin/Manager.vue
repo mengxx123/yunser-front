@@ -1,9 +1,9 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="关于我们">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="关于我们">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             用户管理

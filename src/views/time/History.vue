@@ -1,7 +1,7 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="历史"></mu-appbar>
+            <ui-appbar title="历史"></ui-appbar>
         </header>
         <main class="page-body">
             <h2>历史</h2>

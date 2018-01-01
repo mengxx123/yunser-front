@@ -6,13 +6,13 @@
                 <div class="text">睡眠</div>
             </li>
         </ul>
-        <mu-list>
-            <mu-sub-header>历史</mu-sub-header>
-            <mu-list-item :title="item.name" v-for="item in items">
-                <mu-avatar src="/images/avatar1.jpg" slot="leftAvatar"/>
-                <mu-icon value="delete" slot="right" @click="remove(item)"/>
-            </mu-list-item>
-        </mu-list>
+        <ui-list>
+            <ui-sub-header>历史</ui-sub-header>
+            <ui-list-item :title="item.name" v-for="item in items">
+                <ui-avatar src="/images/avatar1.jpg" slot="leftAvatar"/>
+                <ui-icon value="delete" slot="right" @click="remove(item)"/>
+            </ui-list-item>
+        </ui-list>
         <!--<div>-->
             <!--<div>-->
                 <!--<span>{{ item.name }}</span>-->

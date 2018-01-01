@@ -1,9 +1,9 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="收货地址">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="收货地址">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             <ul class="address-list">
@@ -14,7 +14,7 @@
 
                     <div class="footer">
                         <div>
-                            <mu-checkbox v-model="address.isDefault" label="默认地址" class="demo-checkbox"/>
+                            <ui-checkbox v-model="address.isDefault" label="默认地址" class="demo-checkbox"/>
                         </div>
                         <div class="right">
                             <button @click="remove(address)">删除</button>
@@ -26,7 +26,7 @@
                 </li>
             </ul>
         </main>
-        <mu-float-button class="ui-float-btn" icon="add" @click="add"/>
+        <ui-float-button class="ui-float-btn" icon="add" @click="add"/>
     </div>
 </template>
 

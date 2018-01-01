@@ -1,29 +1,29 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="我的文章">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="我的文章">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-list>
-                <mu-list-item :title="article.title" :to="`/articles/${article.id}`" v-for="article in articles" :key="article.id">
-                    <mu-avatar src="/images/avatar1.jpg" slot="leftAvatar"/>
+            <ui-list>
+                <ui-list-item :title="article.title" :to="`/articles/${article.id}`" v-for="article in articles" :key="article.id">
+                    <ui-avatar src="/images/avatar1.jpg" slot="leftAvatar"/>
                     <span slot="describe" v-html="article.content"></span>
-                    <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-                        <mu-menu-item title="回复" />
-                        <mu-menu-item title="标记" />
-                        <mu-menu-item title="删除" />
-                    </mu-icon-menu>
-                </mu-list-item>
-                <mu-divider inset/>
-            </mu-list>
-            <mu-content-block>
+                    <ui-icon-menu slot="right" icon="more_vert" tooltip="操作">
+                        <ui-menu-item title="回复" />
+                        <ui-menu-item title="标记" />
+                        <ui-menu-item title="删除" />
+                    </ui-icon-menu>
+                </ui-list-item>
+                <ui-divider inset/>
+            </ui-list>
+            <ui-content-block>
 
 
-            </mu-content-block>
+            </ui-content-block>
         </main>
-        <mu-float-button class="ui-float-btn" icon="add" to="/articles/add"/>
+        <ui-float-button class="ui-float-btn" icon="add" to="/articles/add"/>
     </div>
 </template>
 

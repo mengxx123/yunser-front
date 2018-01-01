@@ -1,30 +1,30 @@
 <template>
     <div class="page page-user-detail">
         <header class="page-header" style="background-image: url('/static/img/location.png')">
-            <mu-appbar class="app-bar" title="用户聊天-用户详情">
-                <mu-icon-button icon="arrow_back" slot="left" @click="$router.go(-1)" />
-                <mu-icon-button icon="more_vert" slot="right" @click="bottomSheet = true" />
-            </mu-appbar>
-            <mu-avatar class="avatar" src="/static/img/avatar.jpg"/>
+            <ui-appbar class="app-bar" title="用户聊天-用户详情">
+                <ui-icon-button icon="arrow_back" slot="left" @click="$router.go(-1)" />
+                <ui-icon-button icon="more_vert" slot="right" @click="bottomSheet = true" />
+            </ui-appbar>
+            <ui-avatar class="avatar" src="/static/img/avatar.jpg"/>
         </header>
         <main class="page-body">
-            <mu-list>
-                <mu-list-item title="地区" describeText="广东 广州">
-                    <mu-icon value="location_on" slot="left" color="pinkA200"/>
-                </mu-list-item>
-                <mu-list-item title="相册">
-                    <mu-icon value="photo" slot="left" color="pinkA200"/>
+            <ui-list>
+                <ui-list-item title="地区" describeText="广东 广州">
+                    <ui-icon value="location_on" slot="left" color="pinkA200"/>
+                </ui-list-item>
+                <ui-list-item title="相册">
+                    <ui-icon value="photo" slot="left" color="pinkA200"/>
                     <ul class="photo-list">
                         <li class="item"><img src="/static/img/avatar.jpg"> </li>
                         <li class="item"><img src="/static/img/avatar.jpg"> </li>
                         <li class="item"><img src="/static/img/avatar.jpg"> </li>
                     </ul>
-                </mu-list-item>
-            </mu-list>
-            <mu-content-block>
-                <mu-raised-button class="send-button" label="发消息" primary @click="sendMessage" />
-            </mu-content-block>
-            <mu-content-block>
+                </ui-list-item>
+            </ui-list>
+            <ui-content-block>
+                <ui-raised-button class="send-button" label="发消息" primary @click="sendMessage" />
+            </ui-content-block>
+            <ui-content-block>
                 <div class="" v-if="user">
                     <div>昵称：{{ user.nickname }}</div>
                     <div>邮箱：{{ user.email }}</div>
@@ -39,7 +39,7 @@
                         {{ message.content }}
                     </li>
                 </ul>
-            </mu-content-block>
+            </ui-content-block>
         </main>
         <!--<div class="ui-page-wrap">-->
             <!---->

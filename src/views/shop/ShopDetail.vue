@@ -1,25 +1,18 @@
 <template>
-    <div class="page page-home">
-        <header class="page-header">
-            <mu-appbar :title="title">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
-        </header>
-        <main class="page-body">
-            <ul class="" v-if="shop">
-                <div>{{ shop.name }}</div>
-                <div>{{ shop.description }}</div>
-            </ul>
-            <hr>
-            <div>商品列表</div>
-            <ul>
-                <li v-for="goods in goodses">
-                    <router-link :to="'/goodses/' + goods.id">{{ goods.name }}</router-link>
-                    <hr>
-                </li>
-            </ul>
-        </main>
-    </div>
+    <ui-admin-page name="app" :page="{title: '店铺详情'}">
+        <ul class="" v-if="shop">
+            <div>{{ shop.name }}</div>
+            <div>{{ shop.description }}</div>
+        </ul>
+        <hr>
+        <div>商品列表</div>
+        <ul>
+            <li v-for="goods in goodses">
+                <router-link :to="'/admin/goodses/' + goods.id">{{ goods.name }}</router-link>
+                <hr>
+            </li>
+        </ul>
+    </ui-admin-page>
 </template>
 
 <script>
@@ -40,10 +33,7 @@
                 this.$http.get(`/shops/${shopId}`)
                     .then(response => {
                         let data = response.data
-                        console.log(data)
-                        if (data.code === 0) {
-                            this.shop = data.data
-                        }
+                        this.shop = data
                     },
                     response => {
                         console.log(response)
@@ -51,10 +41,7 @@
                 this.$http.get(`/shops/${shopId}/goodses`)
                     .then(response => {
                             let data = response.data
-                            console.log(data)
-                            if (data.code === 0) {
-                                this.goodses = data.data
-                            }
+                            this.goodses = data
                         },
                         response => {
                             console.log(response)

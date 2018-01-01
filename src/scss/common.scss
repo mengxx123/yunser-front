@@ -7,6 +7,9 @@ body,
 .page {
     height: 100%;
 }
+body {
+    min-width: 992px;
+}
 .container {
     width: 960px;
     margin: 0 auto;
@@ -27,7 +30,7 @@ body,
     overflow-x: hidden;
     overflow-y: auto;
 }
-.page-footer {
+.page-van {
     position: fixed;
     bottom: 0;
     left: 0;

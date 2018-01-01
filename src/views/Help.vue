@@ -1,9 +1,9 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="帮助与反馈">
-                <mu-icon-button icon="arrow_back" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="帮助与反馈">
+                <ui-icon-button icon="arrow_back" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             <article>
@@ -27,10 +27,10 @@
                 <hr>
                 <div>开发者交流群：xxx</div>
             </article>
-            <mu-list>
-                <mu-list-item title="新手上路" to="/about"></mu-list-item>
-                <mu-list-item title="常见问题" to="/about"></mu-list-item>
-            </mu-list>
+            <ui-list>
+                <ui-list-item title="新手上路" to="/about"></ui-list-item>
+                <ui-list-item title="常见问题" to="/about"></ui-list-item>
+            </ui-list>
         </main>
     </div>
 </template>

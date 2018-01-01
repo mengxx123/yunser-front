@@ -1,12 +1,12 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="调试">
-                <mu-icon-button icon="menu" slot="left" @click="toggle(true)"/>
-                <mu-icon-menu icon="more_vert" slot="right">
-                    <mu-menu-item title="分享"/>
-                </mu-icon-menu>
-            </mu-appbar>
+            <ui-appbar title="调试">
+                <ui-icon-button icon="menu" slot="left" @click="toggle(true)"/>
+                <ui-icon-menu icon="more_vert" slot="right">
+                    <ui-menu-item title="分享"/>
+                </ui-icon-menu>
+            </ui-appbar>
         </header>
         <main class="page-body">
             <div v-if="isLogin">
@@ -18,9 +18,9 @@
             </div>
             <div v-else>
                 <router-link to="/login">登录</router-link>
-                <mu-raised-button label="注册" primary to="/register"/>
+                <ui-raised-button label="注册" primary to="/register"/>
             </div>
-            <router-link to="/admin">管理平台</router-link>
+
             <router-link to="/forum">论坛</router-link>
             <router-link to="/users/1">用户详情</router-link>
             <router-link to="/articles">文章</router-link>
@@ -43,39 +43,37 @@
             <router-link to="/me/addresses">收货地址</router-link>
             <div>开发者</div>
             <router-link to="/develop">开发者平台</router-link>
-            <h1>文件</h1>
-            <router-link to="/files">本地文件列表</router-link>
-            <router-link to="/files2">网络文件列表</router-link>
+
 
             <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
         </main>
         <ui-footer></ui-footer>
-        <mu-drawer :open="open" :docked="docked" @close="toggle()">
-            <mu-list @itemClick="docked ? '' : toggle()">
-                <mu-list-item title="个人资料">
-                    <mu-icon value="chat_bubble" slot="left"/>
-                </mu-list-item>
-                <mu-list-item title="相册">
-                    <mu-icon value="photo" slot="left"/>
-                </mu-list-item>
-                <mu-list-item title="收藏">
-                    <mu-icon value="collections" slot="left"/>
-                </mu-list-item>
-                <mu-list-item title="表情">
-                    <mu-icon value="tag_faces" slot="left"/>
-                </mu-list-item>
-                <mu-list-item title="表情">
-                    <mu-icon value="chat_bubble" slot="left"/>
-                </mu-list-item>
-                <mu-list-item title="钱包">
-                    <mu-icon value="chat_bubble" slot="left"/>
-                </mu-list-item>
-                <mu-list-item title="设置" to="/settings">
-                    <mu-icon value="chat_bubble" slot="left"/>
-                    <mu-badge content="new" slot="after" secondary />
-                </mu-list-item>
-            </mu-list>
-        </mu-drawer>
+        <ui-drawer :open="open" :docked="docked" @close="toggle()">
+            <ui-list @itemClick="docked ? '' : toggle()">
+                <ui-list-item title="个人资料">
+                    <ui-icon value="chat_bubble" slot="left"/>
+                </ui-list-item>
+                <ui-list-item title="相册">
+                    <ui-icon value="photo" slot="left"/>
+                </ui-list-item>
+                <ui-list-item title="收藏">
+                    <ui-icon value="collections" slot="left"/>
+                </ui-list-item>
+                <ui-list-item title="表情">
+                    <ui-icon value="tag_faces" slot="left"/>
+                </ui-list-item>
+                <ui-list-item title="表情">
+                    <ui-icon value="chat_bubble" slot="left"/>
+                </ui-list-item>
+                <ui-list-item title="钱包">
+                    <ui-icon value="chat_bubble" slot="left"/>
+                </ui-list-item>
+                <ui-list-item title="设置" to="/settings">
+                    <ui-icon value="chat_bubble" slot="left"/>
+                    <ui-badge content="new" slot="after" secondary />
+                </ui-list-item>
+            </ui-list>
+        </ui-drawer>
     </div>
 </template>
 

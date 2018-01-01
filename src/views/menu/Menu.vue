@@ -1,57 +1,49 @@
 <template>
-    <div class="page page-home">
-        <header class="page-header">
-            <mu-appbar title="菜单">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
-        </header>
-        <main class="page-body">
-            <mu-breadcrumb class="breadcrumb">
-                <mu-breadcrumb-item href="/admin">首页</mu-breadcrumb-item>
-                <mu-breadcrumb-item href="/admin/apps">应用管理</mu-breadcrumb-item>
-                <mu-breadcrumb-item>应用</mu-breadcrumb-item>
-            </mu-breadcrumb>
-            <mu-table clas="table" multiSelectable enableSelectAll ref="table">
-                <mu-thead>
-                    <mu-tr>
-                        <mu-th>ID</mu-th>
-                        <mu-th>名称</mu-th>
-                        <mu-th>描述</mu-th>
-                        <mu-th>操作</mu-th>
-                    </mu-tr>
-                </mu-thead>
-                <mu-tbody>
-                    <mu-tr v-for="menu in menus" :key="menu.id">
-                        <mu-td>{{ menu.id }}</mu-td>
-                        <mu-td>{{ menu.name }}</mu-td>
-                        <mu-td>{{ menu.content }}</mu-td>
-                        <mu-td>
-                            <button @click="view(user)">查看</button>
-                            <button @click="remove(user)">删除</button>
-                        </mu-td>
-                    </mu-tr>
-                </mu-tbody>
-            </mu-table>
-            <div>这是菜单项目</div>
-            <ul class="menu-list">
-                <li class="item" v-for="item in this.menu">
-                    <div>
-                        <a :href="item.url">{{ item.name }}</a>
-                        <span @click="removeItem(item)">（删除）</span>
-                        <span @click="removeDownItem(item)">（下移）</span>
-                        <span @click="addItem(item)">（添加子菜单）</span>
-                    </div>
-                    <ul class="sub-menu" v-if="item.children && item.children.length">
-                        <li class="item" v-for="it in item.children">
-                            <a :href="it.url">{{ it.name }}</a>
-                            <span @click="removeItem(it)">（删除）</span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-        </main>
-    </div>
+    <ui-admin-page name="system" :page="{title: '菜单'}">
+        <ui-breadcrumb class="breadcrumb">
+            <ui-breadcrumb-item href="/admin">首页</ui-breadcrumb-item>
+            <ui-breadcrumb-item href="/admin/apps">应用管理</ui-breadcrumb-item>
+            <ui-breadcrumb-item>应用</ui-breadcrumb-item>
+        </ui-breadcrumb>
+        <ui-table clas="table" multiSelectable enableSelectAll ref="table">
+            <ui-thead>
+                <ui-tr>
+                    <ui-th>ID</ui-th>
+                    <ui-th>名称</ui-th>
+                    <ui-th>描述</ui-th>
+                    <ui-th>操作</ui-th>
+                </ui-tr>
+            </ui-thead>
+            <ui-tbody>
+                <ui-tr v-for="menu in menus" :key="menu.id">
+                    <ui-td>{{ menu.id }}</ui-td>
+                    <ui-td>{{ menu.name }}</ui-td>
+                    <ui-td>{{ menu.content }}</ui-td>
+                    <ui-td>
+                        <button @click="view(user)">查看</button>
+                        <button @click="remove(user)">删除</button>
+                    </ui-td>
+                </ui-tr>
+            </ui-tbody>
+        </ui-table>
+        <div>这是菜单项目</div>
+        <ul class="menu-list">
+            <li class="item" v-for="item in this.menu">
+                <div>
+                    <a :href="item.url">{{ item.name }}</a>
+                    <span @click="removeItem(item)">（删除）</span>
+                    <span @click="removeDownItem(item)">（下移）</span>
+                    <span @click="addItem(item)">（添加子菜单）</span>
+                </div>
+                <ul class="sub-menu" v-if="item.children && item.children.length">
+                    <li class="item" v-for="it in item.children">
+                        <a :href="it.url">{{ it.name }}</a>
+                        <span @click="removeItem(it)">（删除）</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </ui-admin-page>
 </template>
 
 <script>

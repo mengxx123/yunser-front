@@ -1,33 +1,33 @@
 <template>
     <div class="page-register">
         <header class="page-header">
-            <mu-appbar title="联系人">
-                <mu-icon-button icon="menu" slot="left"/>
-            </mu-appbar>
+            <ui-appbar title="联系人">
+                <ui-icon-button icon="menu" slot="left"/>
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-list>
-                <mu-list-item :title="ro.name" @click="viewUser(ro)" v-for="(ro, index) in roster" inset>
-                    <mu-icon value="grade" slot="left" color="pinkA200" v-if="index === 0"/>
-                    <mu-avatar src="/static/img/avatar.jpg" slot="rightAvatar"/>
-                </mu-list-item>
-            </mu-list>
-            <mu-divider inset/>
-            <mu-list>
-                <mu-list-item title="Myron Liu">
-                    <mu-avatar src="/images/uicon.jpg" slot="rightAvatar"/>
-                    <mu-avatar color="pinkA200" :style="{'margin-left': '-8px'}" backgroundColor="transparent" slot="leftAvatar">A</mu-avatar>
-                </mu-list-item>
-                <mu-list-item title="Gaia Zhou" inset>
-                    <mu-avatar src="/images/avatar5.jpg" slot="rightAvatar"/>
-                </mu-list-item>
-                <mu-list-item title="Miller Wang" inset>
-                    <mu-avatar src="/images/avatar6.jpg" slot="rightAvatar"/>
-                </mu-list-item>
-            </mu-list>
+            <ui-list>
+                <ui-list-item :title="ro.name" @click="viewUser(ro)" v-for="(ro, index) in roster" inset>
+                    <ui-icon value="grade" slot="left" color="pinkA200" v-if="index === 0"/>
+                    <ui-avatar src="/static/img/avatar.jpg" slot="rightAvatar"/>
+                </ui-list-item>
+            </ui-list>
+            <ui-divider inset/>
+            <ui-list>
+                <ui-list-item title="Myron Liu">
+                    <ui-avatar src="/images/uicon.jpg" slot="rightAvatar"/>
+                    <ui-avatar color="pinkA200" :style="{'margin-left': '-8px'}" backgroundColor="transparent" slot="leftAvatar">A</ui-avatar>
+                </ui-list-item>
+                <ui-list-item title="Gaia Zhou" inset>
+                    <ui-avatar src="/images/avatar5.jpg" slot="rightAvatar"/>
+                </ui-list-item>
+                <ui-list-item title="Miller Wang" inset>
+                    <ui-avatar src="/images/avatar6.jpg" slot="rightAvatar"/>
+                </ui-list-item>
+            </ui-list>
         </main>
         <ui-footer></ui-footer>
-        <mu-toast v-if="toast" message="注册失败" @close="hideToast"/>
+        <ui-toast v-if="toast" message="注册失败" @close="hideToast"/>
     </div>
 </template>
 

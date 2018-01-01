@@ -1,5 +1,5 @@
 <template>
-    <mu-icon-button icon="arrow_back_ios" slot="left" @click="back"/>
+    <ui-icon-button icon="arrow_back_ios" slot="left" @click="back"/>
 </template>
 
 <script>

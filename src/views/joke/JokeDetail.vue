@@ -1,15 +1,15 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="笑话大全">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="笑话大全">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-content-block>
+            <ui-content-block>
                 <p>云设工具致力于开发工具类 App，方便提高用户日常生活的效率。如果你有需求，我们也可以为你开发工具类 App！</p>
                 <p>给我们发邮件：admin@yunser.com</p>
-            </mu-content-block>
+            </ui-content-block>
 
         </main>
     </div>

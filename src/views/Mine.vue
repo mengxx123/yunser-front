@@ -1,50 +1,50 @@
 <template>
     <div class="page page-home">
         <header class="page-header">
-            <mu-appbar title="个人中心">
-                <mu-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
-            </mu-appbar>
+            <ui-appbar title="个人中心">
+                <ui-icon-button icon="arrow_back_ios" slot="left" @click="$router.go(-1)" />
+            </ui-appbar>
         </header>
         <main class="page-body">
             <div>
-                <mu-list>
-                    <mu-list-item title="朋友圈">
-                        <mu-icon value="grade" slot="left" color="pinkA200"/>
-                    </mu-list-item>
-                </mu-list>
-                <mu-divider inset/>
-                <mu-list>
-                    <mu-list-item title="扫一扫" inset>
-                        <mu-icon value="grade" slot="left" color="pinkA200"/>
-                    </mu-list-item>
-                    <mu-list-item title="摇一摇" inset>
-                        <mu-icon value="grade" slot="left" color="pinkA200"/>
-                    </mu-list-item>
-                </mu-list>
-                <mu-divider inset/>
-                <mu-list>
-                    <mu-list-item title="附近的人" inset>
-                        <mu-icon value="grade" slot="left" color="pinkA200"/>
-                    </mu-list-item>
-                    <mu-list-item title="漂流瓶" inset>
-                        <mu-icon value="grade" slot="left" color="pinkA200"/>
-                    </mu-list-item>
-                </mu-list>
-                <mu-divider inset/>
-                <mu-list>
-                    <mu-list-item title="购物" inset>
-                        <mu-icon value="grade" slot="left" color="pinkA200"/>
-                        <mu-badge content="new" slot="after" secondary />
-                    </mu-list-item>
-                </mu-list>
+                <ui-list>
+                    <ui-list-item title="朋友圈">
+                        <ui-icon value="grade" slot="left" color="pinkA200"/>
+                    </ui-list-item>
+                </ui-list>
+                <ui-divider inset/>
+                <ui-list>
+                    <ui-list-item title="扫一扫" inset>
+                        <ui-icon value="grade" slot="left" color="pinkA200"/>
+                    </ui-list-item>
+                    <ui-list-item title="摇一摇" inset>
+                        <ui-icon value="grade" slot="left" color="pinkA200"/>
+                    </ui-list-item>
+                </ui-list>
+                <ui-divider inset/>
+                <ui-list>
+                    <ui-list-item title="附近的人" inset>
+                        <ui-icon value="grade" slot="left" color="pinkA200"/>
+                    </ui-list-item>
+                    <ui-list-item title="漂流瓶" inset>
+                        <ui-icon value="grade" slot="left" color="pinkA200"/>
+                    </ui-list-item>
+                </ui-list>
+                <ui-divider inset/>
+                <ui-list>
+                    <ui-list-item title="购物" inset>
+                        <ui-icon value="grade" slot="left" color="pinkA200"/>
+                        <ui-badge content="new" slot="after" secondary />
+                    </ui-list-item>
+                </ui-list>
             </div>
-            <mu-content-block>
-                <mu-paper class="login-box" :zDepth="0" v-if="user">
+            <ui-content-block>
+                <ui-paper class="login-box" :zDepth="0" v-if="user">
                     {{ user.nickname }}
                     我的收藏
 
-                </mu-paper>
-            </mu-content-block>
+                </ui-paper>
+            </ui-content-block>
 
         </main>
     </div>

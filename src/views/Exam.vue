@@ -1,16 +1,16 @@
 <template>
     <div class="page page-exam">
         <header class="page-header">
-            <mu-appbar title="在线考试系统">
-                <mu-icon-button icon="menu" slot="left"/>
-            </mu-appbar>
+            <ui-appbar title="在线考试系统">
+                <ui-icon-button icon="menu" slot="left"/>
+            </ui-appbar>
         </header>
         <main class="page-body">
-            <mu-card class="test-item">
-                <mu-card-media title="Image Title" subTitle="Image Sub Title">
+            <ui-card class="test-item">
+                <ui-card-media title="Image Title" subTitle="Image Sub Title">
                     <img src="/images/sun.jpg" />
-                </mu-card-media>
-                <mu-card-title title="Content Title" subTitle="Content Title"/>
+                </ui-card-media>
+                <ui-card-title title="Content Title" subTitle="Content Title"/>
                 <div>
 
                     {{ item.type }}1
@@ -19,11 +19,11 @@
                         <li v-for="(option, index) in item.options" @click="select(index)">{{ option }}</li>
                     </ul>
                 </div>
-                <mu-card-actions>
-                    <mu-flat-button label="上一题" @click="prevItem"/>
-                    <mu-flat-button label="下一题" @click="nextItem"/>
-                </mu-card-actions>
-            </mu-card>
+                <ui-card-actions>
+                    <ui-flat-button label="上一题" @click="prevItem"/>
+                    <ui-flat-button label="下一题" @click="nextItem"/>
+                </ui-card-actions>
+            </ui-card>
         </main>
     </div>
 </template>
