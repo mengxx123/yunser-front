@@ -1,27 +1,7 @@
 <template>
-    <ui-admin-page name="app" :page="page" breadcrumb>
-        <ui-table clas="table" multiSelectable enableSelectAll ref="table">
-            <ui-thead>
-                <ui-tr>
-                    <ui-th>ID</ui-th>
-                    <ui-th>名称</ui-th>
-                    <ui-th>描述</ui-th>
-                    <ui-th>操作</ui-th>
-                </ui-tr>
-            </ui-thead>
-            <ui-tbody>
-                <ui-tr v-for="app in apps" :key="app.id">
-                    <ui-td>{{ app.id }}</ui-td>
-                    <ui-td>{{ app.name }}</ui-td>
-                    <ui-td>{{ app.description }}</ui-td>
-                    <ui-td>
-                        <button @click="view(app)">查看</button>
-                        <button @click="remove(app)">删除</button>
-                    </ui-td>
-                </ui-tr>
-            </ui-tbody>
-        </ui-table>
-    </ui-admin-page>
+    <ui-me-page name="app" :page="page" breadcrumb>
+        <div>安全设置</div>
+    </ui-me-page>
 </template>
 
 <script>
@@ -32,7 +12,7 @@
                 current: 1,
                 apps: [],
                 page: {
-                    title: '工单管理',
+                    title: '安全设置',
                     breadcrumb: [
                         {
                             title: '工单管理',

@@ -1,11 +1,11 @@
 <template>
-    <ui-admin-page name="app" :page="page" breadcrumb>
+    <ui-me-page name="app" :page="page" breadcrumb>
         <div v-if="user">
             <img :src="getAvatar()">
             <button @click="modifyAvatar">修改头像</button>
             <div>{{ user.name }}</div>
         </div>
-    </ui-admin-page>
+    </ui-me-page>
 </template>
 
 <script>

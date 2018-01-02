@@ -17,6 +17,7 @@ const Article = resolve => require(['VIEW/article/Article'], resolve)
 const MyArticle = resolve => require(['VIEW/article/MyArticle'], resolve)
 const ArticleAdd = resolve => require(['VIEW/article/ArticleAdd'], resolve)
 
+const Me = resolve => require(['VIEW/me/Index'], resolve)
 const Mine = resolve => require(['VIEW/Mine'], resolve)
 
 const Count = resolve => require(['VIEW/Count'], resolve)
@@ -75,6 +76,9 @@ const Develop = resolve => require(['VIEW/develop/Home'], resolve)
 const DeveloperAdd = resolve => require(['VIEW/develop/Add'], resolve)
 const AdminDeveloper = resolve => require(['VIEW/develop/Admin'], resolve)
 
+const Oauth = resolve => require(['VIEW/oauth/Oauth'], resolve)
+const OauthManagement = resolve => require(['VIEW/oauth/Management'], resolve)
+const OauthAgreement = resolve => require(['VIEW/oauth/Agreement'], resolve)
 const WeiboCallback = resolve => require(['VIEW/weibo/Callback'], resolve)
 // 邮件
 const AdminEmail = resolve => require(['VIEW/email/Email'], resolve)
@@ -143,6 +147,13 @@ let routes = [
     {
         path: '/add',
         component: Add
+    },
+    {
+        path: '/me',
+        component: Me,
+        meta: {
+            auth: true
+        }
     },
     {
         path: '/mine',
@@ -334,6 +345,18 @@ let routes = [
     {
         path: '/admin/develop',
         component: AdminDeveloper
+    },
+    {
+        path: '/oauth/authorize',
+        component: Oauth
+    },
+    {
+        path: '/oauth/management',
+        component: OauthManagement
+    },
+    {
+        path: '/oauth/agreement',
+        component: OauthAgreement
     },
     {
         path: '/weibo/callback',
