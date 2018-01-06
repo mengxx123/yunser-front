@@ -29,6 +29,15 @@
                         <ui-icon slot="left" value="grade"/>
                     </ui-list-item>
                 </ui-list-item>
+                <ui-list-item title="工具" toggleNested>
+                    <ui-icon slot="left" value="inbox"/>
+                    <ui-list-item title="TODO" href="http://todo.yunser.com" target="_blank" slot="nested">
+                        <ui-icon slot="left" value="grade"/>
+                    </ui-list-item>
+                    <ui-list-item title="备忘" href="http://note.yunser.com" target="_blank" slot="nested">
+                        <ui-icon slot="left" value="grade"/>
+                    </ui-list-item>
+                </ui-list-item>
                 <ui-list-item title="授权" toggleNested>
                     <ui-icon slot="left" value="inbox"/>
                     <ui-list-item title="授权管理" to="/oauth/management" slot="nested">

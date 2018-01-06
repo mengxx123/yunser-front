@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import {domain} from '@/config'
 import YunserUI from 'yunser-ui-vue'
 import 'yunser-ui-vue/dist/yunser-ui.css'
 import 'yunser-ui-vue/dist/theme-light.css'
@@ -21,6 +21,7 @@ Vue.use(ui)
 Vue.config.productionTip = false
 Vue.prototype.$http = http
 Vue.prototype.$qs = qs
+Vue.prototype.$domain = domain
 Vue.prototype.$storage = storage
 
 /* eslint-disable no-new */

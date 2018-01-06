@@ -17,7 +17,7 @@
                     name: '跑步',
                     startTime: 1510381344285,
                     endTime: 1510381944285
-                }, {
+                },{
                     name: '吃饭',
                     startTime: 1510381344285,
                     endTime: 1510381944285
