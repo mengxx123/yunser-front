@@ -80,6 +80,7 @@ const Oauth = resolve => require(['VIEW/oauth/Oauth'], resolve)
 const OauthManagement = resolve => require(['VIEW/oauth/Management'], resolve)
 const OauthAgreement = resolve => require(['VIEW/oauth/Agreement'], resolve)
 const WeiboCallback = resolve => require(['VIEW/weibo/Callback'], resolve)
+const WeiboError = resolve => require(['VIEW/weibo/Error'], resolve)
 // 邮件
 const AdminEmail = resolve => require(['VIEW/email/Email'], resolve)
 const EmailNew = resolve => require(['VIEW/email/EmailNew'], resolve)
@@ -361,6 +362,10 @@ let routes = [
     {
         path: '/weibo/callback',
         component: WeiboCallback
+    },
+    {
+        path: '/weibo/error',
+        component: WeiboError
     },
     // 邮件
     {

@@ -37,6 +37,9 @@
                     <ui-list-item title="备忘" href="http://note.yunser.com" target="_blank" slot="nested">
                         <ui-icon slot="left" value="grade"/>
                     </ui-list-item>
+                    <ui-list-item title="文件" href="http://file.yunser.com" target="_blank" slot="nested">
+                        <ui-icon slot="left" value="grade"/>
+                    </ui-list-item>
                 </ui-list-item>
                 <ui-list-item title="授权" toggleNested>
                     <ui-icon slot="left" value="inbox"/>
