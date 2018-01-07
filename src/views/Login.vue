@@ -1,8 +1,10 @@
 <template>
     <div class="page page-login">
         <main class="page-body">
+            <div class="bg"></div>
             <div class="login-content">
-                <div class="ui-ad-box" v-if="ad">
+                <router-link class="logo" to="/">云设</router-link>
+                <div class="ui-ad-box" v-if="ad && false">
                     <a :href="ad.url" target="_blank">
                         <img :src="ad.content">
                     </a>
@@ -27,6 +29,7 @@
                         </div>
                         <ui-raised-button class="login-btn" label="登录" primary @click="login"/>
                         <button @click="weiboLogin">微博登录</button>
+                        <button @click="qqLogin">QQ登录</button>
                     </div>
                     <div v-if="type === 'qrcode'">
                         <h1>扫码登录</h1>
@@ -70,6 +73,14 @@
         },
         methods: {
             init() {
+                let type = this.$route.query.type
+                let redirectUri = this.$route.query.redirect_uri
+                redirectUri = decodeURIComponent(redirectUri)
+
+                if (this.$storage.get('accessToken')) {
+                    this.redirect()
+                }
+
                 if (this.$storage.get('rememberPwd')) {
                     this.rememberPwd = true
                     this.account = this.$storage.get('account')
@@ -85,6 +96,16 @@
                     .then(response => {
                         location.href = response.data
 //                        window.open(response.data)
+                    },
+                    response => {
+                        console.log(response)
+                        alert(response.msg)
+                    })
+            },
+            qqLogin() {
+                this.$http.get('/qq/login')
+                    .then(response => {
+                        location.href = response.data
                     },
                     response => {
                         console.log(response)
@@ -109,7 +130,7 @@
                 }
 
                 if (!this.account) {
-                    console.log('请输入注册邮箱')
+                    alert('请输入注册邮箱')
                     return
                 }
                 if (!this.password) {
@@ -134,16 +155,36 @@
             },
             // 跳转
             redirect() {
-                let params = this.$qs.parse(location.search.replace('?', ''))
-                if (params.redirect) {
-                    let redirectUrl = decodeURIComponent(params.redirect)
-                    if (redirectUrl.match(/^http/)) {
-                        location.href = redirectUrl
+                let type = this.$route.query.type
+                let redirectUri = this.$route.query.redirect_uri
+                let accessToken = this.$storage.get('accessToken')
+
+                console.log('啦啦啦' + redirectUri)
+                if (type === 'oss') {
+                    if (redirectUri) {
+                        redirectUri = decodeURIComponent(redirectUri)
+                        console.log(redirectUri)
+                        if (redirectUri.match(/^http/)) {
+                            location.href = redirectUri + '&accessToken=' + accessToken
+                        } else {
+                            this.$router.push(redirectUri)
+                        }
                     } else {
-                        this.$router.push(redirectUrl)
+                        this.$router.push('/')
                     }
+//                        location.href = redirectUri + '?code=123456'
                 } else {
-                    this.$router.push('/')
+                    if (redirectUri) {
+                        redirectUri = decodeURIComponent(redirectUri)
+                        console.log(redirectUri)
+                        if (redirectUri.match(/^http/)) {
+                            location.href = redirectUri
+                        } else {
+                            this.$router.push(redirectUri)
+                        }
+                    } else {
+                        this.$router.push('/')
+                    }
                 }
             }
         }
@@ -151,11 +192,29 @@
 </script>
 
 <style lang="scss" scoped>
+    .bg {
+        position: relative;
+        width: 100%;
+        height: 360px;
+        background-color: #00b38a;
+    }
     .login-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100%;
+        padding-top: 80px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
+    }
+    .logo {
+        width: 320px;
+        margin-bottom: 16px;
+        font-size: 32px;
+        color: #fff;
+        font-weight: bold;
     }
     .page-login {
         background-color: #f1f1f1;
@@ -169,6 +228,7 @@
         box-shadow: 0 1px 6px rgba(0, 0, 0, .117647), 0 1px 4px rgba(0, 0, 0, .117647);
         .login-btn {
             width: 100%;
+            margin-bottom: 16px;
         }
         .type {
             position: absolute;

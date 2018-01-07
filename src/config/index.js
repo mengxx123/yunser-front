@@ -9,8 +9,8 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     domain = {
         // api = 'http://localhost:1026'
-        api: 'https://api.yunser.com',
-        // api: 'http://localhost:1030',
+        // api: 'https://api.yunser.com',
+        api: 'http://localhost:1030',
         img: 'img1.yunser.com'
     }
 }

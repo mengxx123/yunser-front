@@ -70,11 +70,7 @@ const AddressEdit = resolve => require(['VIEW/shop/AddressEdit'], resolve)
 
 const County = resolve => require(['VIEW/County'], resolve)
 
-// 开发者平台
 const Debug = resolve => require(['VIEW/Debug'], resolve)
-const Develop = resolve => require(['VIEW/develop/Home'], resolve)
-const DeveloperAdd = resolve => require(['VIEW/develop/Add'], resolve)
-const AdminDeveloper = resolve => require(['VIEW/develop/Admin'], resolve)
 
 const Oauth = resolve => require(['VIEW/oauth/Oauth'], resolve)
 const OauthManagement = resolve => require(['VIEW/oauth/Management'], resolve)
@@ -217,7 +213,10 @@ let routes = [
     // 管理平台
     {
         path: '/admin',
-        component: Admin
+        component: Admin,
+        meta: {
+            auth: true
+        }
     },
     // 用户管理
     {
@@ -336,18 +335,6 @@ let routes = [
         component: Debug
     },
     {
-        path: '/develop',
-        component: Develop
-    },
-    {
-        path: '/developers/add',
-        component: DeveloperAdd
-    },
-    {
-        path: '/admin/develop',
-        component: AdminDeveloper
-    },
-    {
         path: '/oauth/authorize',
         component: Oauth
     },
@@ -455,20 +442,14 @@ router.beforeEach((to, from, next) => {
         return
     }
 
-    if (/login/.test(to.path)) {
-        if (storage.get('accessToken')) {
-            router.push('/') // TODO
-        } else {
-            next()
-        }
-    } else if (to.matched.some(record => record.meta.auth)) {
+    if (to.matched.some(record => record.meta.auth)) {
         window.redirect = encodeURIComponent(to.path)
         let redirect = encodeURIComponent(to.path)
 
         if (storage.get('accessToken')) {
             next()
         } else {
-            router.push({path: '/login', query: {redirect: redirect}})
+            router.push({path: '/login', query: {redirect_uri: redirect}})
         }
     } else {
         if (to.meta.title) {

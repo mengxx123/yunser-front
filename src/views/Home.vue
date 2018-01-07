@@ -3,7 +3,6 @@
         <ui-container top>
 
             <router-link to="/admin">管理平台</router-link>
-            <router-link to="/login">登录</router-link>
             <router-link to="/articles/1">文章详情</router-link>
             <router-link to="/articles">文章列表</router-link>
             <router-link to="/mine">个人中心</router-link>

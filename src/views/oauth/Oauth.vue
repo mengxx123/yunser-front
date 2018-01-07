@@ -9,6 +9,7 @@
             <div class="row">
                 <div class="col-sm-8">
                     <p>检测到您已登录 云设，点击头像授权并登陆</p>
+                    <button @click="auth">授权登陆</button>
                     <a href="/"><img src="/asset/img/user1.jpg"></a>
                     <a href="/">其他账号登陆</a>
                 </div>
@@ -44,18 +45,26 @@
             this.init()
         },
         methods: {
-            test() {
-                this.dealCode();
-            },
-            init() {
-                let appId = this.$route.query.client_id
-                this.$http.get('/apps/' + appId)
+            auth() {
+                console.log('参数')
+                let clientId = this.$route.query.client_id
+                let redirectUri = this.$route.query.redirect_uri
+                let response_type = this.$route.query.response_type
+                let state = this.$route.query.state
+                let scope = this.$route.query.scope
+
+                this.$http.get(`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&state=${state}&scope=${scope}`)
                     .then(response => {
-                        this.app = response.data
+                        location.href = response.data
                     },
                     response => {
                         console.log(response)
                     })
+            },
+            test() {
+                this.dealCode();
+            },
+            init() {
             }
         }
     }
