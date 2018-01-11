@@ -21,6 +21,20 @@
                 <ui-raised-button label="注册" primary to="/register"/>
             </div>
 
+            <router-link to="/admin">管理平台</router-link>
+            <router-link to="/articles/1">文章详情</router-link>
+            <router-link to="/articles">文章列表</router-link>
+            <router-link to="/mine">个人中心</router-link>
+            <router-link to="/debug">调试</router-link>
+
+            <h2>个人中心</h2>
+            <router-link to="/mine">个人中心</router-link>
+            <router-link to="/me/articles">我的文章</router-link>
+
+            <li><a href="http://icon.yunser.com" target="_blank">图标</a> </li>
+            <li><a href="http://chart.yunser.com" target="_blank">云设图+</a> </li>
+            <li><router-link to="/jokes">笑话</router-link></li>
+
             <router-link to="/forum">论坛</router-link>
             <router-link to="/users/1">用户详情</router-link>
             <router-link to="/articles">文章</router-link>
@@ -41,11 +55,6 @@
             <div>商城</div>
             <router-link to="/shops/1">店铺1</router-link>
             <router-link to="/me/addresses">收货地址</router-link>
-            <div>开发者</div>
-            <router-link to="/develop">开发者平台</router-link>
-
-
-            <div><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17154000号</a></div>
         </main>
         <ui-footer></ui-footer>
         <ui-drawer :open="open" :docked="docked" @close="toggle()">

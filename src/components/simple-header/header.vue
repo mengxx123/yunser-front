@@ -1,22 +1,7 @@
 <template>
     <header class="page-header">
         <ui-container>
-            <ui-appbar :title="title" style="box-shadow: none">
-                <ui-icon value=":icon icon-logo" slot="left"></ui-icon>
-                <!--<div v-if="isLogin">-->
-                    <!--{{ user.name }}-->
-                    <!--<div @click="loginOut">退出登录</div>-->
-                    <!--<div>-->
-                        <!--<router-link to="/account">账号中心</router-link>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <ui-flat-button label="个人中心" slot="right" to="/me" v-if="isLogin" style="margin-right: 16px" />
-
-                <ui-flat-button label="首页" slot="right" to="/" />
-                <ui-flat-button label="所有产品" slot="right" to="/products" />
-                <ui-flat-button label="登录" slot="right" to="/login" v-if="!isLogin" style="margin-right: 16px" />
-                <ui-raised-button label="注册" to="/register" v-if="!isLogin" slot="right"/>
-            </ui-appbar>
+            <router-link class="main-title" to="/">云设</router-link>
         </ui-container>
     </header>
 </template>
@@ -32,7 +17,7 @@
         props: {
             title: {
                 type: String,
-                default: ''
+                default: '云设'
             }
         },
         mounted() {
@@ -56,9 +41,17 @@
     }
 </script>
 
-<style>
+<style scoped>
+    .main-title {
+        line-height: 64px;
+        color: #ffffff;
+        font-size: 24px;
+    }
     .page-header {
+        position: relative;
+        z-index: 100;
         background-color: #2196f3;
         color: #ffffff;
+        margin-bottom: 0;
     }
 </style>

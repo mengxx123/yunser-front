@@ -3,19 +3,15 @@ import Router from 'vue-router'
 import storage from '../util/storage'
 
 const Home = resolve => require(['VIEW/Home'], resolve)
+const Product = resolve => require(['VIEW/Product'], resolve)
 const Main = resolve => require(['VIEW/Main'], resolve)
 const About = resolve => require(['VIEW/About'], resolve)
 const Feedback = resolve => require(['VIEW/Feedback'], resolve)
 
-const Login = resolve => require(['VIEW/Login'], resolve)
-const Register = resolve => require(['VIEW/Register'], resolve)
+const Login = resolve => require(['VIEW/account/Login'], resolve)
+const Register = resolve => require(['VIEW/account/Register'], resolve)
 
 const UserDetail = resolve => require(['VIEW/UserDetail'], resolve)
-
-const ArticleDetail = resolve => require(['VIEW/article/Detail'], resolve)
-const Article = resolve => require(['VIEW/article/Article'], resolve)
-const MyArticle = resolve => require(['VIEW/article/MyArticle'], resolve)
-const ArticleAdd = resolve => require(['VIEW/article/ArticleAdd'], resolve)
 
 const Me = resolve => require(['VIEW/me/Index'], resolve)
 const Mine = resolve => require(['VIEW/Mine'], resolve)
@@ -76,6 +72,7 @@ const Oauth = resolve => require(['VIEW/oauth/Oauth'], resolve)
 const OauthManagement = resolve => require(['VIEW/oauth/Management'], resolve)
 const OauthAgreement = resolve => require(['VIEW/oauth/Agreement'], resolve)
 const WeiboCallback = resolve => require(['VIEW/weibo/Callback'], resolve)
+const GitHubCallback = resolve => require(['VIEW/oauth/CallbackGitHub'], resolve)
 const WeiboError = resolve => require(['VIEW/weibo/Error'], resolve)
 // 邮件
 const AdminEmail = resolve => require(['VIEW/email/Email'], resolve)
@@ -100,6 +97,11 @@ const JokeDetail = resolve => require(['VIEW/joke/JokeDetail'], resolve)
 const Profile = resolve => require(['VIEW/account/Profile'], resolve)
 const Secure = resolve => require(['VIEW/account/Secure'], resolve)
 
+const GitHub = resolve => require(['VIEW/GitHub'], resolve)
+const EmailValid = resolve => require(['VIEW/account/EmailValid'], resolve)
+const PasswordFind = resolve => require(['VIEW/account/PasswordFind'], resolve)
+const PasswordReset = resolve => require(['VIEW/account/PasswordReset'], resolve)
+
 Vue.use(Router)
 
 let routes = [
@@ -115,8 +117,28 @@ let routes = [
         ]
     },
     {
+        path: '/products',
+        component: Product
+    },
+    {
         path: '/count',
         component: Count
+    },
+    {
+        path: '/email/valid',
+        component: EmailValid
+    },
+    {
+        path: '/password/find',
+        component: PasswordFind
+    },
+    {
+        path: '/password/reset',
+        component: PasswordReset
+    },
+    {
+        path: '/github',
+        component: GitHub
     },
     {
         path: '/about',
@@ -177,23 +199,6 @@ let routes = [
     {
         path: '/users/:id',
         component: UserDetail
-    },
-    // 文章相关
-    {
-        path: '/articles',
-        component: Article
-    },
-    {
-        path: '/articles/add',
-        component: ArticleAdd
-    },
-    {
-        path: '/articles/:id',
-        component: ArticleDetail
-    },
-    {
-        path: '/me/articles',
-        component: MyArticle
     },
     // 账号相关
     {
@@ -353,6 +358,10 @@ let routes = [
     {
         path: '/weibo/error',
         component: WeiboError
+    },
+    {
+        path: '/oauth/callback/github',
+        component: GitHubCallback
     },
     // 邮件
     {

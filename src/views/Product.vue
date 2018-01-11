@@ -1,15 +1,22 @@
 <template>
     <ui-page name="home" :page="{title: '云设'}">
         <ui-container top>
-            <div class="slogan">给我一个账号，我给你想要的一切</div>
-            <div class="btn-box">
-                <ui-raised-button label="去注册" to="/register" primary/>
-            </div>
-            <!--<div>链接一切</div>-->
-            <!--<a href="/">工作</a>-->
-            <!--<a href="/">学习</a>-->
-            <!--<a href="/">生活</a>-->
-            <!--<a href="/">娱乐</a>-->
+            <h2 class="product-title">产品大全</h2>
+            <ul class="product-list">
+                <li class="item">
+                    <a class="link" href="http://tool.yunser.com" target="_blank">
+                        <img class="img" src="/static/img/product_tool.png">
+                        <h3 class="title">云设工具</h3>
+                    </a>
+                </li>
+                <li>
+                    <a class="link" href="http://font.yunser.com/" target="_blank">
+                        <img class="img" src="/static/img/product_font.svg">
+                        <h3 class="title">字体</h3>
+                    </a>
+                </li>
+            </ul>
+
         </ui-container>
     </ui-page>
 </template>
@@ -81,13 +88,27 @@
 </script>
 
 <style lang="scss" scoped>
-    .slogan {
-        margin-top: 80px;
-        text-align: center;
+    .product-title {
         font-size: 20px;
-        margin-bottom: 80px;
+        margin: 16px 0;
     }
-    .btn-box {
-        text-align: center;
+    .product-list {
+        .item {
+            float: left;
+            width: 25%;
+        }
+        .link {
+            color: inherit;
+        }
+        .img {
+            float: left;
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+        }
+        .title {
+            float: left;
+            line-height: 32px;
+        }
     }
 </style>

@@ -39,18 +39,20 @@
         },
         methods: {
             init() {
-                let userId = this.$storage.get('user').id
-                this.$http.get(`/users/${userId}/articles`)
-                    .then(response => {
-                            let data = response.data
-                            console.log(data)
-                            if (data.code === 0) {
-                                this.articles = data.data
-                            }
+                let user = this.$storage.get('user')
+                user = {
+                    id: '1'
+                }
+                if (user) {
+                    this.$http.get(`/users/${user.id}/articles`)
+                        .then(response => {
+                            this.articles = response.data
                         },
                         response => {
                             console.log(response)
                         })
+                }
+
             }
         }
     }

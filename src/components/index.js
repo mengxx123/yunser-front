@@ -3,6 +3,9 @@ import footer from './footer'
 import header from './header'
 import barMenu from './bar-menu'
 
+import simplePage from './simple-page'
+import simpleHeader from './simple-header'
+
 import adminPage from './admin-page'
 import adminFooter from './admin-footer'
 import adminHeader from './admin-header'
@@ -23,6 +26,9 @@ export default {
         Vue.component('ui-header', header)
         Vue.component('ui-footer', footer)
         Vue.component('ui-back', back)
+
+        Vue.component('ui-simple-page', simplePage)
+        Vue.component('ui-simple-header', simpleHeader)
 
         Vue.component('ui-admin-page', adminPage)
         Vue.component('ui-admin-header', adminHeader)
