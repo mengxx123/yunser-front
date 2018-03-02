@@ -9,12 +9,19 @@
                         <h3 class="title">云设工具</h3>
                     </a>
                 </li>
+                <li class="item">
+                    <a class="link" href="http://project.yunser.com" target="_blank">
+                        <img class="img" src="/static/img/product_tool.png">
+                        <h3 class="title">云设项目</h3>
+                    </a>
+                </li>
                 <li>
                     <a class="link" href="http://font.yunser.com/" target="_blank">
                         <img class="img" src="/static/img/product_font.svg">
                         <h3 class="title">字体</h3>
                     </a>
                 </li>
+
             </ul>
 
         </ui-container>
